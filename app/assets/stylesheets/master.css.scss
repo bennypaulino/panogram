@@ -1,3 +1,8 @@
+/* --------- mixins, variables, etc. ---------- */
+$gray-medium-light: #eaeaea;
+
+/* --------- UNIVERSAL ----------- */
+
 body {
   padding-top: 4em;
 }
@@ -12,11 +17,11 @@ textarea {
 
 .center {
   text-align: center;
+  h1 {
+  margin-bottom: .8em;
+  }
 }
 
-.center h1 {
-  margin-bottom: .8em;
-}
 
 /* ----------- typography -------------- */
 
@@ -56,39 +61,34 @@ p {
   padding-top: .4em;
   font-weight: bold;
   text-decoration: none;
+  &:hover {
+    color: #008080;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
-  color: #008080;
-  text-decoration: none;
-}
 
 /* --------------- FOOTER ----------------- */
 footer {
   margin-top: 3.5em;
   padding-top: .2em;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid $gray-medium-light;
   color: #777;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
   float: right;
   list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 1em;
+    li {
+      float: left;
+      margin-left: 1em;
+    }
+  }
 }
