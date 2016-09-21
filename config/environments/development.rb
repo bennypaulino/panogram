@@ -4,7 +4,7 @@ Rails.application.configure do
   # Whitelists your entire local network - it might be a slight security risk on
   # public Wi-Fi. If you're paranoid, you can change the quoted IP address to
   # just the address of the phone/tablet you want to try out.)
-  config.web_console.whitelisted_ips = '192.168.0.0/16'
+  # config.web_console.whitelisted_ips = '192.168.0.0/16'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
