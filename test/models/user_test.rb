@@ -4,7 +4,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Joe Schmoe", email: "joe@schmoe.com",
-                     username: "herpaderpa")
+                     username: "herpaderpa", password: "d0nuts",
+                     password_confirmation: "d0nuts")
   end
 
   test "should be valid" do
@@ -88,5 +89,15 @@ class UserTest < ActiveSupport::TestCase
     @user.username = camelCase_username
     @user.save
     assert_equal camelCase_username.downcase, @user.reload.username
+  end
+
+  test "password should not be blank" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
+
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
   end
 end

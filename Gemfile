@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -24,7 +23,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # Converts Less to Sass and make Bootstrap available
-gem 'bootstrap-sass', '~>3.3.6'
+gem 'bootstrap-sass', '~> 3.3.6'
+
+# has_secure_password uses a state-of-the-art hash function inside...
+gem 'bcrypt', '~> 3.1.11'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
