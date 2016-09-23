@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  get '/new', to: 'users#new'
+  #get '/new', to: 'users#new'
   get '/signup', to: 'users#signup'
-  get '/login', to: 'users#login'
-  get '/logout', to: 'users#logout'
+  #get '/login', to: 'users#login'
+  #get '/logout', to: 'users#logout'
+  resources :users
 
   get '/home', to: 'static_pages#home'
   get '/help', to: 'static_pages#help'
