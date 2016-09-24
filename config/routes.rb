@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   #get '/new', to: 'users#new'
-  get '/signup', to: 'users#signup'
+  get '/signup', to: 'users#new'
   #get '/login', to: 'users#login'
   #get '/logout', to: 'users#logout'
   resources :users
