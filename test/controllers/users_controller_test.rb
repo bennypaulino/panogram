@@ -6,24 +6,24 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_path
+    get new_user_path
     assert_response :success
   end
 
   test "should get signup" do
-    get signup_path
+    get new_user_path
     assert_response :success
     assert_select "title", "Sign Up | #{@base_title}"
   end
 
-  test "should get login" do
-    get login_path
-    assert_response :success
-  end
+  # test "should get login" do
+  #   get login_path
+  #   assert_response :success
+  # end
 
-  test "should get logout" do
-    get logout_path
-    assert_response :success
-  end
+  # test "should get logout" do
+  #   get logout_path
+  #   assert_response :success
+  # end
 
 end
