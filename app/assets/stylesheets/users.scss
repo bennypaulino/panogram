@@ -1,3 +1,38 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ------------------- sidebar ------------------------- */
+aside {
+  section.user_info {
+    margin-top: 1.5em;
+  }
+  section {
+    padding: 1em 0;
+    margin-top: 1.5em;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: .2em;
+      line-height: 1;
+    }
+    h1 {
+      text-align: left;
+      letter-spacing: .1em;
+      margin-bottom: .2em;
+      margin-top: 0;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: .8em;
+}
+
+.gravatar_edit {
+  margin-top: 1em;
+}

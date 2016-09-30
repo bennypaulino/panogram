@@ -9,4 +9,13 @@ module ApplicationHelper
      page_title + " | " + base_title
     end
   end
+
+  # Allow validation fields to have a red glow by adding the proper class
+  def form_group_tag(errors, &block)
+    if errors.any?
+      content_tag :div, capture(&block), class: 'form-group has-error'
+    else
+      content_tag :div, capture(&block), class: 'form-group'
+    end
+  end
 end
