@@ -23,7 +23,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # Converts Less to Sass and make Bootstrap available
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '3.3.6'
 
 # has_secure_password uses a state-of-the-art hash function inside...
 gem 'bcrypt', '~> 3.1.11'
