@@ -6,25 +6,31 @@
     <%= form_for(@user, url: signup_path) do |f| %> 
       <%= render 'shared/error_messages' %>
 
-      <!-- The following method is in application_helper.rb  -->
-      <%#= form_group_tag(@user.errors[:name]) do %>
-        <%= f.label :name, class: 'control-label' %>
-        <%= f.text_field :name, class: 'form_control' %>
-      <% #end %>
+      <%= f.label :name, class: 'control-label' %>
+      <%= f.text_field :name, class: 'form-control' %>
+
       <br>
+
       <%= f.label :email, class: 'control-label' %>
-      <%= f.email_field :email, class: 'form_control' %>
+      <%= f.email_field :email, class: 'form-control' %>
+
       <br>
+
       <div class="form-group">
         <%= f.label :username, class: 'control-label' %>
-        <%= f.text_field :username, class: 'form_control' %>
+        <%= f.text_field :username, class: 'form-control' %>
       </div>
+
       <br>
+
       <%= f.label :password, class: 'control-label' %>
-      <%= f.password_field :password, class: 'form_control' %>
+      <%= f.password_field :password, class: 'form-control' %>
+
       <br>
+
       <%= f.label :password_confirmation, "Confirmation", class: 'control-label' %>
-      <%= f.password_field :password_confirmation, class: 'form_control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      
       <br>
       <br>
       <%= f.submit "Create my account", class: 'btn btn-primary' %>
