@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def signup
-  end
+  # def signup
+  # end
 
   def create
     @user = User.new(user_params)
@@ -24,6 +24,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+       # handle a successful update
+    else
+      render 'edit'
+    end
   end
 
   private
