@@ -136,26 +136,27 @@ input {
   }
 }
 
-/*.field_with_errors {
-  input{
-    border-color: #a94442;
-    -webkit-box-shadow: 0 0 5px #FF3701;
-            box-shadow: 0 0 5px #FF3701;
-            padding: 3px 0px 3px 3px;
-            margin: 5px 1px 3px 0px;
-            border: 1px solid #D90707;
-  }
-  label {
-    color: #a94442;
-  }
-}*/
-
 #signup-link {
   text-decoration: none;
   font-weight: 600;
 }
 
-/* -------- miscellaneous ----------- */
+.checkbox {
+  margin-top: -0.8em;
+  margin-bottom: -0.8em;
+  span {
+    margin-left: 1.5em;
+    font-weight: normal;
+  }
+}
+
+/*The following will move the checkbox to the left*/
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* ------------------------ miscellaneous ----------------------- */
 .debug_dump {
   clear: both;
   float: left;
