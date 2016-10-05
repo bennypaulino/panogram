@@ -8,6 +8,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @base_title = "Because the world isn't always square"
   end
 
+  test "should redirect if visiting index when not logged in" do
+    get users_path
+    assert_redirected_to login_url
+  end
+
+  test "should get index for a user that is logged in" do
+    log_in_as(@user)
+    get users_path
+    assert_template 'users/index'
+  end
+
   test "should get new" do
     get new_user_path
     assert_response :success
