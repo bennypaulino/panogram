@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:krusty)
+    @evil_user = users(:vader)
     @base_title = "Because the world isn't always square"
   end
 
@@ -29,5 +30,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
                                               email: @user.email } }
     assert_not flash.empty?
     assert_redirected_to login_url
+  end
+
+  test "should redirect when accessing someone else's edit profile page" do
+    log_in_as(@evil_user)
+    get edit_user_path(@user)
+    assert flash.empty?
+    assert_redirected_to root_url
+  end
+
+  test "should redirect an attempt to UPDATE someone else's profile page" do
+    log_in_as(@evil_user)
+    patch user_path(@user), params: { user: { name: @user.name,
+                                              email: @user.email } }
+    assert flash.empty?
+    assert_redirected_to root_url
   end
 end
