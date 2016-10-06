@@ -1,5 +1,7 @@
-<% provide(:title, "All Panogramistas") %>
-<h1>All Panogramistas</h1>
+<% provide(:title, "All Panogramosaurs") %>
+<h1>All Panogramosaurs</h1>
+
+<%= will_paginate %>
 
 <ul class="users">
   <% @users.each do |user| %>
@@ -9,3 +11,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= will_paginate %>
