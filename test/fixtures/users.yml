@@ -6,29 +6,39 @@ krusty:
   username: krustytheclown
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 vader:
   name: Darth Vader
   email: vader@deathstar.com
   username: darthvader
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 kenobi:
   name: Obi Wan Kenobi
   email: obiwan@theforce.org
   username: obiwan
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 maul:
   name: Darth Maul
   email: maul@failed-sith.com
   username: darthmaul
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
-  name: <%= "user-#{n}_" %>
+  name: <%= "user #{n}" %>
   email: <%= "user-#{n}@example.com" %>
-  username: <%= "user_#{n}_" %>
+  username: <%= "user_#{n}" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
