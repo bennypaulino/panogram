@@ -25,6 +25,12 @@ gem 'jbuilder', '~> 2.5'
 # Converts Less to Sass and make Bootstrap available
 gem 'bootstrap-sass', '3.3.6'
 
+# Create pagination links
+gem 'will_paginate', '~> 3.1.0'
+
+# Configure will_paginate to use Bootstrap's pagination styles
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
 # has_secure_password uses a state-of-the-art hash function inside...
 gem 'bcrypt', '~> 3.1.11'
 
@@ -48,6 +54,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Generate sample users with semi-realistic names and email addresses
+  gem 'faker', '~> 1.6.3'
 end
 
 group :test do

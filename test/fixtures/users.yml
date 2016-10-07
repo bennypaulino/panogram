@@ -5,3 +5,30 @@ krusty:
   email: krusty@clown.com
   username: krustytheclown
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+vader:
+  name: Darth Vader
+  email: vader@deathstar.com
+  username: darthvader
+  password_digest: <%= User.digest('password') %>
+
+kenobi:
+  name: Obi Wan Kenobi
+  email: obiwan@theforce.org
+  username: obiwan
+  password_digest: <%= User.digest('password') %>
+
+maul:
+  name: Darth Maul
+  email: maul@failed-sith.com
+  username: darthmaul
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "user-#{n}_" %>
+  email: <%= "user-#{n}@example.com" %>
+  username: <%= "user_#{n}_" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
