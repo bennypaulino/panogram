@@ -2,7 +2,8 @@ User.create!(name: "Example User",
              email: "example@panogram.com",
              username: "blah",
              password: "password",
-             password_confirmation: "password")
+             password_confirmation: "password",
+             admin: true)
 
 50.times do |n|
   name = Faker::Name.name
