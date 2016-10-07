@@ -5,6 +5,7 @@ krusty:
   email: krusty@clown.com
   username: krustytheclown
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 vader:
   name: Darth Vader
