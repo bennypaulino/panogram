@@ -19,9 +19,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # log-in new users after they sign up w/ method from sessions_helper.rb
-      log_in @user
-      flash[:success] = "Hi, #{@user.username.upcase}, welcome to Panogram!"
-      redirect_to @user
+      #log_in @user
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
