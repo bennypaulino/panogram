@@ -33,6 +33,13 @@ maul:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+unactivated:
+  name: Not Activated
+  email: lazy@notactivated.com
+  username: lazy-user
+  password_digest: <%= User.digest('password') %>
+  activated: false
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "user #{n}" %>

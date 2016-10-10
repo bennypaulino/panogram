@@ -5,6 +5,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:krusty)
     @evil_user = users(:vader)
+    @unactivated_user = users(:unactivated)
     @base_title = "Because the world isn't always square"
   end
 
@@ -17,6 +18,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get users_path
     assert_template 'users/index'
+    # assert that there are no users displayed that aren't activated
   end
 
   test "should get new" do
@@ -80,6 +82,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'User.count' do
       delete user_path(@user)
     end
+    assert_redirected_to root_url
+  end
+
+  test "should redirect if a user tries to access unactivated user's profile" do
+    log_in_as(@evil_user)
+    get user_path(@unactivated_user)
     assert_redirected_to root_url
   end
 end
