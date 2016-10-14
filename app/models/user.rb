@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+  # dependent: :destroy prevents userless microposts from being stranded in the
+  # database when admins choose to remove users from the system
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save :downcase_email, :downcase_username
