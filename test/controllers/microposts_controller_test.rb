@@ -1,7 +1,21 @@
 require 'test_helper'
 
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @micropost = microposts(:costello)
+  end
+
+  test "should redirect an attempt to create when user isn't logged in" do
+    assert_no_difference 'Micropost.count' do
+      post microposts_path, params: { micropost: { content: "Not logged in" } }
+    end
+    assert_redirected_to login_url
+  end
+
+  test "should redirect attempt to destroy a post when user isn't logged in" do
+    assert_no_difference 'Micropost.count' do
+      delete micropost_path(@micropost)
+    end
+    assert_redirected_to login_url
+  end
 end
