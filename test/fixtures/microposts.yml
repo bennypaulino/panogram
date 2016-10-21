@@ -31,3 +31,23 @@ micropost_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: krusty
 <% end %>
+
+marmot:
+  content: "Nice marmot."
+  created_at: <%= 2.years.ago %>
+  user: lebowski
+
+bar:
+  content: "Sometimes you eat the bar and sometimes, well, the bar eats you."
+  created_at: <%= 3.days.ago %>
+  user: stranger
+
+pacifism:
+  content: "You know, Dude, I myself dabbled in pacifism once. Not in 'Nam, of course."
+  created_at: <%= 10.minutes.ago %>
+  user: walter
+
+opinion:
+  content: "Yeah, well, that's just, like, your opinion, man."
+  created_at: <%= 4.hours.ago %>
+  user: lebowski

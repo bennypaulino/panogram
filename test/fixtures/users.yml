@@ -33,6 +33,30 @@ maul:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+lebowski:
+  name: The Dude
+  email: thedude@elduderino.com
+  username: thedude
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+stranger:
+  name: The Stranger
+  email: cowboy@thebar.com
+  username: thestranger
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+walter:
+  name: Walter Sobchak
+  email: walter@yourelement.com
+  username: walter
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 unactivated:
   name: Not Activated
   email: lazy@notactivated.com
