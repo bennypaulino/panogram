@@ -34,6 +34,15 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 # has_secure_password uses a state-of-the-art hash function inside...
 gem 'bcrypt', '~> 3.1.11'
 
+# Provides a simple & flexible way to upload files from Ruby applications.
+gem 'carrierwave', '~> 0.11.2'
+
+# Minimagick helps to manipulate images with minimal use of memory via ImageMagick
+gem 'mini_magick', '~> 4.5.1'
+
+# Handles both server cloud & storage based services. Supports Amazon S3 & more.
+gem 'fog', '~> 1.38.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -45,6 +54,9 @@ gem 'bcrypt', '~> 3.1.11'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # Generate sample users with semi-realistic names and email addresses
+  gem 'faker', '~> 1.6.3'
 end
 
 group :development do
@@ -54,9 +66,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  # Generate sample users with semi-realistic names and email addresses
-  gem 'faker', '~> 1.6.3'
 end
 
 group :test do

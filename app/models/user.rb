@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+  # dependent: :destroy prevents userless microposts from being stranded in the
+  # database when admins choose to remove users from the system
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save :downcase_email, :downcase_username
@@ -77,6 +81,11 @@ class User < ApplicationRecord
   # Password reset sent EARLIER than two hours ago?
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Select all microposts belonging to the current user
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private
