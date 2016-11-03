@@ -175,3 +175,126 @@ input {
   margin-top: 3em;
   @include box_sizing;
 }
+
+/*---------  sidebar ----------------*/
+aside {
+  section.user_info {
+    margin-top: 1.5em;
+  }
+  section {
+    padding: 1em 0;
+    margin-top: 1.5em;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: .2em;
+      line-height: 1;
+    }
+    h1 {
+      text-align: left;
+      letter-spacing: .1em;
+      margin-bottom: .2em;
+      margin-top: 0;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: .8em;
+}
+
+.gravatar_edit {
+  margin-top: 1em;
+}
+
+/*  ---------------  microposts  -------------------  */
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: .8em 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 4em;
+    img {
+      display: block;
+      padding: .3em 0;
+    }
+  }
+  .timestamp {
+    color: #eaeaea;
+    display: block;
+    margin-left: 4em;
+  }
+  .gravatar {
+    float: left;
+    margin-right: .8em;
+    margin-top: .4em;
+  }
+}
+
+aside {
+  textarea {
+    height: 7em;
+    margin-bottom: .4em;
+  }
+}
+
+span.picture {
+  margin-top: .8em;
+  input {
+    border: 0;
+  }
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 .7em;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: .7em;
+  gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
+#unfollow:hover {
+  color: red;
+}
