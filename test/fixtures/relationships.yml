@@ -1,1 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+two:
+  follower: walter
+  followed: lebowski
+
+two:
+  follower: lebowski
+  followed: walter
+
+three:
+  follower: stranger
+  followed: lebowski
+
+four:
+  follower: lebowski
+  followed: stranger
