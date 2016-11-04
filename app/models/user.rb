@@ -92,9 +92,9 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  # Select all microposts belonging to the current user
+  # Return a user's status feed
   def feed
-    Micropost.where("user_id = ?", id)
+    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
   end
 
   # Follow another user
