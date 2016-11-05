@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro|Athiti|Atomic+Age|Dosis|Economica|Flamenco|Gruppo|Rajdhani|Rationale');
 
 /* --------- mixins, variables, etc. ---------- */
 $gray-medium-light: #eaeaea;
@@ -17,6 +18,8 @@ body {
 
 section {
   overflow: auto;
+  font-family: 'Dosis', sans-serif;
+  /*font-family: 'Athiti', sans-serif;*/
 }
 
 textarea {
@@ -58,6 +61,18 @@ p {
   letter-spacing: 0.8em;
 }
 
+/*
+font-family: 'Gruppo', cursive;
+font-family: 'Flamenco', cursive;
+font-family: 'Atomic Age', cursive;
+font-family: 'Dosis', sans-serif;
+font-family: 'Economica', sans-serif;
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Advent Pro', sans-serif;
+font-family: 'Athiti', sans-serif;
+font-family: 'Rationale', sans-serif;
+*/
+
 /* ------------- HEADER --------------- */
 #logo {
   float: left;
@@ -75,6 +90,10 @@ p {
   }
 }
 
+.navbar {
+  font-family: 'Gruppo', cursive;
+}
+
 
 /* --------------- FOOTER ----------------- */
 footer {
@@ -82,6 +101,7 @@ footer {
   padding-top: .2em;
   border-top: 1px solid $gray-medium-light;
   color: #777;
+  font-family: 'Gruppo', cursive;
   a {
     color: #555;
     &:hover {
@@ -89,16 +109,48 @@ footer {
     }
   }
   small {
-    float: left;
+    margin-left: 1em;
   }
   ul {
   float: right;
+  margin-right: 1em;
   list-style: none;
     li {
       float: left;
       margin-left: 1em;
     }
   }
+}
+
+/* --------------- landing page --------------------------  */
+.jumbotron {
+  padding: 10em 0;
+  font-family: 'Gruppo', cursive;
+  h2 {
+    font-size: 1.7em;
+    color: #fdffee;
+  }
+}
+
+.hero {
+  background: url('hero.jpg') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*height: 380px;*/
+  box-shadow: 0px 4px 12px rgba(133,116,133,0.90);
+  .frosty {
+  background: rgba(0,0,0, 0.1);
+  color: rgba(255,255,255, 0.9);
+  border-radius: 6px;
+  padding: 3em;
+  margin-top: -1em;
+  }
+}
+
+.hero-title {
+  letter-spacing: 0.9em;
 }
 
 /* --------------- forms --------------------------  */
@@ -184,6 +236,7 @@ aside {
   section {
     padding: 1em 0;
     margin-top: 1.5em;
+    margin-left: 0.5em;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -191,12 +244,13 @@ aside {
     span {
       display: block;
       margin-bottom: .2em;
+      margin-top: 0.8em;
       line-height: 1;
     }
     h1 {
       text-align: left;
       letter-spacing: .1em;
-      margin-bottom: .2em;
+      margin-bottom: .8em;
       margin-top: 0;
     }
   }
@@ -211,10 +265,15 @@ aside {
   margin-top: 1em;
 }
 
+.micropost_form {
+  font-family: 'Gruppo', cursive;
+}
+
 /*  ---------------  microposts  -------------------  */
 .microposts {
   list-style: none;
   padding: 0;
+  font-family: 'Dosis', sans-serif;
   li {
     padding: .8em 0;
     border-top: 1px solid #e8e8e8;
@@ -226,21 +285,32 @@ aside {
   .content {
     display: block;
     margin-left: 4em;
+    margin-top: 0.5em;
     img {
-      display: block;
+      /*display: block;*/
       padding: .3em 0;
+      margin-top: 1em;
     }
   }
   .timestamp {
-    color: #eaeaea;
+    color: #d8d8d8;
     display: block;
     margin-left: 4em;
+    /*a {
+      color: #4596dc;
+    }*/
   }
   .gravatar {
     float: left;
     margin-right: .8em;
     margin-top: .4em;
   }
+}
+
+.pano-feed {
+  font-family: 'Gruppo', cursive;
+  font-weight: 800;
+  letter-spacing: .4em;
 }
 
 aside {
@@ -261,6 +331,7 @@ span.picture {
   overflow: auto;
   margin-top: 0;
   padding: 0;
+  font-family: 'Gruppo', cursive;
   a {
     float: left;
     padding: 0 .7em;

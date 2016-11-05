@@ -4,7 +4,8 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
   </head>
@@ -12,7 +13,7 @@
   <body>
     <%= render 'layouts/header' %>
 
-    <div class="container">
+    <div class="container-fluid">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
@@ -21,7 +22,7 @@
 
     <footer class="footer">
       <small>
-        Share your panoramic images on <%= link_to "p a n o g r a m !", '/', class:'' %>
+        Share your panoramic images on &nbsp<%= link_to "p a n o g r a m !", '/', class:'' %>
       </small>
       <nav>
         <ul>
