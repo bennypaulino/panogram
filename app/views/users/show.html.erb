@@ -10,11 +10,19 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+    <section class="user-stats-timestamp">
+      <% if current_user.admin? %>
+        <p>Account created on: <%= @user.created_at %></p>
+        <p>Account updated on: <%= @user.updated_at %></p>
+        <br>
+        <p>The time is now: <%= Time.now %></p>
+      <% end %>
+    </section>
   </aside>
   <div class="col-xs-12 col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3 class="micropost_count">Pano-posts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
@@ -22,9 +30,3 @@
     <% end %>
   </div>
 </div>
-
-
-<p>Account created on: <%= @user.created_at %></p>
-<p>Account updated on: <%= @user.updated_at %></p>
-<br>
-<p>The time is now: <%= Time.now %></p>

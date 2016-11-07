@@ -4,10 +4,11 @@
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
   <br>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "Post", class: "btn btn-primary btn-submit" %>
   <br>
   <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/jpg/,image/gif,image/png' %>
+    <%= f.file_field :picture, 
+                      accept: 'image/jpeg,image/jpg/,image/gif,image/png' %>
   </span>
 <% end %>
 

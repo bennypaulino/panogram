@@ -1,5 +1,5 @@
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Advent+Pro|Athiti|Atomic+Age|Dosis|Economica|Flamenco|Gruppo|Rajdhani|Rationale');
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro|Dosis|Gruppo|');
 
 /* --------- mixins, variables, etc. ---------- */
 $gray-medium-light: #eaeaea;
@@ -19,7 +19,6 @@ body {
 section {
   overflow: auto;
   font-family: 'Dosis', sans-serif;
-  /*font-family: 'Athiti', sans-serif;*/
 }
 
 textarea {
@@ -33,8 +32,15 @@ textarea {
   }
 }
 
-
 /* ----------- typography -------------- */
+
+.primary-font {
+  font-family: 'Gruppo', cursive;
+}
+
+.secondary-font {
+  font-family: 'Dosis', sans-serif;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -61,17 +67,11 @@ p {
   letter-spacing: 0.8em;
 }
 
-/*
-font-family: 'Gruppo', cursive;
-font-family: 'Flamenco', cursive;
-font-family: 'Atomic Age', cursive;
-font-family: 'Dosis', sans-serif;
-font-family: 'Economica', sans-serif;
-font-family: 'Rajdhani', sans-serif;
-font-family: 'Advent Pro', sans-serif;
-font-family: 'Athiti', sans-serif;
-font-family: 'Rationale', sans-serif;
-*/
+.page-title {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .3em;
+  font-weight: 800;
+}
 
 /* ------------- HEADER --------------- */
 #logo {
@@ -87,6 +87,8 @@ font-family: 'Rationale', sans-serif;
   &:hover {
     color: #008080;
     text-decoration: none;
+    transition: 3s;
+    letter-spacing: 1.4em;
   }
 }
 
@@ -106,6 +108,7 @@ footer {
     color: #555;
     &:hover {
       color: #222;
+      text-decoration: none;
     }
   }
   small {
@@ -120,6 +123,13 @@ footer {
       margin-left: 1em;
     }
   }
+}
+
+.footer-stretch:hover {
+  text-decoration: none;
+  transition: 3s;
+  letter-spacing: 1.2em;
+  margin-left: 1em;
 }
 
 /* --------------- landing page --------------------------  */
@@ -153,6 +163,11 @@ footer {
   letter-spacing: 0.9em;
 }
 
+.hero-title:hover {
+  letter-spacing: 1.4em;
+  transition: 3s;
+}
+
 /* --------------- forms --------------------------  */
 input, textarea, select, .uneditable-input {
   border-collapse: 1px solid #bbb;
@@ -168,18 +183,42 @@ input {
   margin-bottom: 1em;
 }
 
+label.control-label {
+  font-family: 'Gruppo', cursive;
+  font-size: 1.3em;
+  letter-spacing: .2em;
+}
+
+.form-control {
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 0.1em;
+}
+
 #error_explanation {
   color: red;
+  div {
+    font-size: 1.4em;
+    font-weight: 800;
+    letter-spacing: .1em;
+  }
   ul {
     color: #C51717;
     margin: 0 0 2.5em 0;
   }
 }
 
+.alert-title {
+  font-family: 'Gruppo', cursive;
+  font-size: 1.2em;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
 .field_with_errors {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+    font-family: 'Dosis', sans-serif;
     -webkit-box-shadow: 0 0 5px #FF3701;
             box-shadow: 0 0 5px #FF3701;
             padding: 3px 0px 3px 3px;
@@ -188,7 +227,13 @@ input {
   }
 }
 
-#signup-link {
+.error-messages {
+  letter-spacing: .1em;
+  font-size: 1.2em;
+  padding-top: .3em;
+}
+
+#signup-link:hover {
   text-decoration: none;
   font-weight: 600;
 }
@@ -208,6 +253,42 @@ input {
   margin-left: 0;
 }
 
+#forgot-password:hover {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+#unfollow {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .2em;
+}
+
+#unfollow:hover {
+  color: red;
+  background-color: #fbedd5;
+  transition: 1s;
+  font-weight: 800;
+  letter-spacing: .6em;
+  box-shadow: 0 3px 6px 0 #ecd1c0;
+}
+
+.btn-submit {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .2em;
+}
+
+.btn-submit:hover {
+  transition: 0.8s;
+  font-weight: 800;
+  letter-spacing: .6em;
+  box-shadow: 0 3px 6px 0 #17324a;
+}
+
+.new-user {
+  font-size: 1.5em;
+  letter-spacing: .04em;
+}
+
 /* ------------------------ Users index ----------------------- */
 .users {
   list-style: none;
@@ -219,6 +300,12 @@ input {
   }
 }
 
+.users-list {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.08em;
+}
+
 /* ------------------------ miscellaneous ----------------------- */
 .debug_dump {
   clear: both;
@@ -228,7 +315,7 @@ input {
   @include box_sizing;
 }
 
-/*---------  sidebar ----------------*/
+/*----------------------------  sidebar ---------------------------*/
 aside {
   section.user_info {
     margin-top: 1.5em;
@@ -256,9 +343,28 @@ aside {
   }
 }
 
+.user-stats-timestamp{
+  color: #b9b7b7;
+}
+
 .gravatar {
   float: left;
   margin-right: .8em;
+}
+
+.center-override .gravatar {
+  float: none;
+  margin-right: 1em;
+}
+
+.change-gravatar {
+  font-family: 'Gruppo', cursive;
+  font-size: 1.4em;
+}
+
+.change-gravatar:hover {
+  text-decoration: none;
+  font-weight: 800;
 }
 
 .gravatar_edit {
@@ -270,10 +376,18 @@ aside {
 }
 
 /*  ---------------  microposts  -------------------  */
+.micropost_count {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .3em;
+  font-weight: 800;
+}
+
 .microposts {
   list-style: none;
   padding: 0;
   font-family: 'Dosis', sans-serif;
+  font-size: 1.04em;
+  letter-spacing: 0.08em;
   li {
     padding: .8em 0;
     border-top: 1px solid #e8e8e8;
@@ -305,6 +419,10 @@ aside {
     margin-right: .8em;
     margin-top: .4em;
   }
+}
+
+.microposts .user a:hover {
+  text-decoration: none;
 }
 
 .pano-feed {
@@ -362,10 +480,11 @@ span.picture {
   }
 }
 
+.users-list a:hover {
+  text-decoration: none;
+}
+
 .users.follow {
   padding: 0;
 }
 
-#unfollow:hover {
-  color: red;
-}
