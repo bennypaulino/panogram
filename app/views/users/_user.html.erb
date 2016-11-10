@@ -1,10 +1,10 @@
-<li>
+<li class="users-list">
   <%= gravatar_for user, size: 50 %>
   <%= link_to user.name, user %>
 
-<!-- second half of this statement ensures that an admin cannot accidentaly delete him/herself, since a delete link will not be provided for their own account -->
-<% if current_user.admin? && !current_user?(user) %>
-  | <%= link_to "delete", user, method: :delete,
-                                data: { confirm: "Are you sure?" } %>
-<% end %>
+  <!-- second half of this statement ensures that an admin cannot accidentaly delete him/herself, since a delete link will not be provided for their own account -->
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
+  <% end %>
 </li>

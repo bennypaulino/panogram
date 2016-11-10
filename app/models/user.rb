@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :passive_relationships, class_name: "Relationship",
+                                  foreign_key: "followed_id",
+                                  dependent:   :destroy
+
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   has_many :microposts, dependent: :destroy
   # dependent: :destroy prevents userless microposts from being stranded in the
   # database when admins choose to remove users from the system
@@ -83,9 +92,28 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  # Select all microposts belonging to the current user
+  # Return a user's status feed
   def feed
-    Micropost.where("user_id = ?", id)
+    #Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+  end
+
+  # Follow another user
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # Stop following a particular user
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
   end
 
   private

@@ -1,7 +1,11 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro|Dosis|Gruppo|');
 
 /* --------- mixins, variables, etc. ---------- */
 $gray-medium-light: #eaeaea;
+$accent-color: #6ec90d;
+$link-color: #820C92;
+$link-color-hover: #50015B;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -17,6 +21,7 @@ body {
 
 section {
   overflow: auto;
+  font-family: 'Dosis', sans-serif;
 }
 
 textarea {
@@ -30,8 +35,19 @@ textarea {
   }
 }
 
+/*aside {
+  background-color: rgba(110, 201, 13, 0.12);
+}*/
 
 /* ----------- typography -------------- */
+
+.primary-font {
+  font-family: 'Gruppo', cursive;
+}
+
+.secondary-font {
+  font-family: 'Dosis', sans-serif;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -58,6 +74,12 @@ p {
   letter-spacing: 0.8em;
 }
 
+.page-title {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .3em;
+  font-weight: 800;
+}
+
 /* ------------- HEADER --------------- */
 #logo {
   float: left;
@@ -70,9 +92,24 @@ p {
   font-weight: bold;
   text-decoration: none;
   &:hover {
-    color: #008080;
+    color: $accent-color;
     text-decoration: none;
+    transition: 3s;
+    letter-spacing: 1.4em;
   }
+}
+
+.navbar {
+  font-family: 'Gruppo', cursive;
+}
+
+.navbar .container-fluid .navbar-right > li > a:hover {
+  color: $accent-color;
+}
+
+.dropdown .dropdown-menu > li > a:hover {
+  transition: 1s;
+  background-color: #bdf582;
 }
 
 
@@ -82,23 +119,74 @@ footer {
   padding-top: .2em;
   border-top: 1px solid $gray-medium-light;
   color: #777;
+  font-family: 'Gruppo', cursive;
   a {
     color: #555;
     &:hover {
-      color: #222;
+      color: $link-color-hover;
+      text-decoration: none;
     }
   }
   small {
-    float: left;
+    margin-left: 1em;
   }
   ul {
   float: right;
+  margin-right: 1em;
   list-style: none;
     li {
       float: left;
       margin-left: 1em;
     }
   }
+}
+
+.footer-stretch:hover {
+  text-decoration: none;
+  transition: 3s;
+  letter-spacing: 1.2em;
+  margin-left: 1em;
+  color: $link-color-hover;
+}
+
+/* --------------- landing page --------------------------  */
+.jumbotron {
+  padding: 10em 0;
+  font-family: 'Gruppo', cursive;
+  h2 {
+    font-size: 1.7em;
+    color: #fdffee;
+  }
+}
+
+.hero {
+  background: url('hero.jpg') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*height: 380px;*/
+  box-shadow: 0px 4px 12px rgba(133,116,133,0.90);
+  .frosty {
+    background: rgba(0,0,0, 0.1);
+    color: rgba(255,255,255, 0.9);
+    border-radius: 6px;
+    padding: 3em;
+    margin-top: -1em;
+    .btn-submit {
+      color: #fff;
+      background-color: rgba(120, 210, 24, 0.75);
+    }
+  }
+}
+
+.hero-title {
+  letter-spacing: 0.9em;
+  &:hover {
+    letter-spacing: 1.4em;
+    transition: 3s;
+    color: #d4f9ad;
+  } 
 }
 
 /* --------------- forms --------------------------  */
@@ -116,18 +204,46 @@ input {
   margin-bottom: 1em;
 }
 
+label.control-label {
+  font-family: 'Gruppo', cursive;
+  font-size: 1.3em;
+  letter-spacing: .2em;
+}
+
+.form-group .form-control {
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 0.1em;
+  &:focus {
+    border-color: #6ec90d;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(110, 201, 13, 0.6);
+  }
+}
+
 #error_explanation {
   color: red;
+  div {
+    font-size: 1.4em;
+    font-weight: 800;
+    letter-spacing: .1em;
+  }
   ul {
     color: #C51717;
     margin: 0 0 2.5em 0;
   }
 }
 
+.alert-title {
+  font-family: 'Gruppo', cursive;
+  font-size: 1.2em;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
 .field_with_errors {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+    font-family: 'Dosis', sans-serif;
     -webkit-box-shadow: 0 0 5px #FF3701;
             box-shadow: 0 0 5px #FF3701;
             padding: 3px 0px 3px 3px;
@@ -136,9 +252,19 @@ input {
   }
 }
 
+.error-messages {
+  letter-spacing: .1em;
+  font-size: 1.2em;
+  padding-top: .3em;
+}
+
 #signup-link {
-  text-decoration: none;
-  font-weight: 600;
+  color: $link-color;
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: none;
+    font-weight: 600;
+  }
 }
 
 .checkbox {
@@ -156,6 +282,49 @@ input {
   margin-left: 0;
 }
 
+#forgot-password {
+  color: $link-color;
+  &:hover {
+    color: $link-color-hover;
+    font-weight: 800;
+    text-decoration: none;
+  }
+}
+
+#unfollow {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .2em;
+  &:hover {
+    color: red;
+    background-color: rgba(178, 42, 3, 0.15);
+    transition: 1s;
+    font-weight: 800;
+    letter-spacing: .6em;
+    box-shadow: 0 3px 6px 0 #ecd1c0;
+  }
+}
+
+.btn-submit {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .2em;
+  color: #fff;
+  background-color: #A6E95E;
+  border-color: #2a671e;
+  &:hover {
+    color: #fff;
+    background-color: #8CDC35;
+    transition: 0.8s;
+    font-weight: 800;
+    letter-spacing: .6em;
+    box-shadow: 0 3px 6px 0 #2a671e;
+  }
+}
+
+.new-user {
+  font-size: 1.5em;
+  letter-spacing: .04em;
+}
+
 /* ------------------------ Users index ----------------------- */
 .users {
   list-style: none;
@@ -167,6 +336,19 @@ input {
   }
 }
 
+.users-list {
+  
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.08em;
+  a {
+    color: $link-color;
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+}
+
 /* ------------------------ miscellaneous ----------------------- */
 .debug_dump {
   clear: both;
@@ -174,4 +356,368 @@ input {
   width: 100%;
   margin-top: 3em;
   @include box_sizing;
+}
+
+/*----------------------------  sidebar ---------------------------*/
+aside {
+  section.user_info {
+    margin-top: 2.5em;
+    h1 {
+      font-size: 1.6em;
+      font-weight: 800;
+      letter-spacing: .2em;
+      margin-bottom: 0;
+    }
+    a {
+      color: $link-color;
+      letter-spacing: .1em;
+      &:hover {
+        text-decoration: none;
+        color: $link-color-hover;
+      }
+    }
+    .sidebar-post-count {
+      margin-top: 1.2em;
+      letter-spacing: .4em;
+    }
+  }
+  section {
+    padding: 1em 0;
+    margin-top: 1.5em;
+    margin-left: 0.5em;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: .2em;
+      margin-top: 0.8em;
+      line-height: 1;
+    }
+    h1 {
+      text-align: left;
+      letter-spacing: .1em;
+      margin-bottom: .8em;
+      margin-top: 0;
+    }
+  }
+}
+
+#post-count-adjust {
+  margin-top: 5.8em;
+}
+
+#sidebar_user_show {
+  margin-top: 4.2em;
+}
+
+#user_info_show_name {
+  font-size: 1.3em;
+  /*margin-top: 1.4em;*/
+}
+
+.user-stats-timestamp{
+  color: #b9b7b7;
+}
+
+.gravatar {
+  float: left;
+  margin-right: .8em;
+}
+
+.center-override .gravatar {
+  float: none;
+  margin-right: 1em;
+}
+
+.change-gravatar {
+  font-family: 'Gruppo', cursive;
+  font-size: 1.4em;
+  color: $link-color;
+  &:hover {
+    color: #B22A03;
+    text-decoration: none;
+  }
+}
+
+.gravatar_edit {
+  margin-top: 1em;
+}
+
+.micropost_form {
+  font-family: 'Gruppo', cursive;
+}
+
+/*  ---------------  microposts  -------------------  */
+.micropost_count {
+  font-family: 'Gruppo', cursive;
+  letter-spacing: .3em;
+  font-weight: 800;
+}
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.04em;
+  letter-spacing: 0.08em;
+  li {
+    padding: .8em 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+    a {
+      color: $link-color;
+      &:hover {
+        color: $link-color-hover;
+      }
+    }
+  }
+  .content {
+    display: block;
+    margin-left: 4em;
+    margin-top: 0.5em;
+    img {
+      /*display: block;*/
+      padding: .3em 0;
+      margin-top: 1em;
+    }
+  }
+  .timestamp {
+    color: #d8d8d8;
+    display: block;
+    margin-left: 4em;
+    a {
+      color: $link-color;
+      &:hover {
+        color: #B22A03;
+        text-decoration: none;
+      }
+    }
+  }
+  .gravatar {
+    float: left;
+    margin-right: .8em;
+    margin-top: .4em;
+  }
+}
+
+.microposts .user a:hover {
+  text-decoration: none;
+}
+
+.pano-feed {
+  font-family: 'Gruppo', cursive;
+  font-weight: 800;
+  letter-spacing: .4em;
+  margin-top: 1.3em;
+}
+
+aside {
+  textarea {
+    height: 7em;
+    margin-bottom: .4em;
+    letter-spacing: .1em;
+  }
+}
+
+span.picture {
+  margin-top: .8em;
+  input {
+    border: 0;
+  }
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  font-family: 'Gruppo', cursive;
+  a {
+    float: left;
+    padding: 0 .7em;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $link-color-hover;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: .7em;
+  gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: .5em 0;
+  }
+}
+
+.users-list a:hover {
+  text-decoration: none;
+}
+
+.users.follow {
+  padding: 0;
+}
+
+/*  --------------  follow / followers ---------------------- */
+.show-follow-followers {
+  margin-top: 1.8em;
+  .users-list a {
+    color: $link-color;
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+  aside .user_info .sidebar-post-count {
+    margin-top: 4em;
+  }
+}
+
+
+
+/*  ----------------  pagination  -------------------------  */
+
+.pagination:before,
+.pagination:after {
+  content: " ";
+  display: block;
+}
+
+.pagination:after {
+  clear: both;
+}
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.row .pagination .active a {
+  background-color: #A349B0;
+  border-color: rgba(62, 13, 84, 0.5);
+}
+
+.row .pagination .active a:hover {
+  background-color: rgba(130, 12, 146, 0.31);
+  border-color: rgba(62, 13, 84, 0.45);
+  font-weight: 800;
+}
+
+.row .pagination > li > a {
+  color: #d895f9;
+  &:active {
+    color: #A349B0;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &:hover {
+    color: #750d92;
+    background-color: rgba(199, 227, 212, 0.31);
+    border-color: rgba(199, 227, 212, 0.7);
+  }
+}
+
+.row .pagination > li > a:hover {
+  background-color: rgba(163, 73, 176, 0.11);
+  border-color: rgba(163, 73, 176, 0.42);
+/*  z-index: 2;
+  color: #750d92;*/
+}
+
+.pagination a, .previous_page, .current, .next_page {
+  padding: .75em 1em;
+  margin: 0 .5em;
+  border-radius: .15em;
+  line-height: 20px;
+  text-decoration: none;
+  /*background: #fff;*/
+  font-size: 1em;
+  font-weight: 700;
+  font-style: normal;
+  color: #A4A4A4;
+}
+
+.current {
+  background: #7edce3;
+  color: #fff;
+}
+
+.disabled {
+  display: none;
+} 
+
+/*.pagination .li a:hover {
+  background-color: #e4e4e4;
+  border-color: #b3b1b1;
+  font-weight: bolder;
+}*/
+
+.pagination a:hover {
+  color: #28C6D1;
+  background: #d6d6d6;
+  transition: 1s;
+}
+
+/* --------------- Static Pages ----------------- */
+.hint {
+  font-size: 1.2em;
+  letter-spacing: .1em;
+  &:hover > .footer-stretch {
+    transition: 3s;
+    letter-spacing: 1.2em;
+    margin-left: 1em;
+    color: #438100;
+  }
+}
+
+.p-legible {
+  font-size: 1.2em;
+  letter-spacing: .1em;
+}
+
+.social-button {
+  width: 32px;
+  margin: 0 1.6em;
+  opacity: 0.2;
+  filter: alpha(opacity=20); /* For IE8 and earlier */
+  &:hover {
+    border-radius: 16px;
+    opacity: .9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */
+    background-color: rgba(110, 201, 13, 0.79);
+    transition: 3s;
+  }
+}
+
+.social a:hover {
+  /*background-color: rgba(104, 202, 53, 0.99); */
+  transition: 1.5s;
+  text-decoration: none;
+}
+
+.troopers {
+  opacity: 0.2;
+  filter: alpha(opacity=20); /* For IE8 and earlier */
+  &:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+    transition: 1s;
+  }
 }

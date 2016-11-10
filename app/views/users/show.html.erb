@@ -1,26 +1,38 @@
 <% provide(:title, @user.username) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
+  <aside class="col-xs-12 col-md-4">
+    <section class="user_info" id="sidebar_user_show">
+      <h1 class="primary-font" id="user_info_show_name">
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <span class="sidebar-post-count" id="post-count-adjust">
+        <%= pluralize(current_user.microposts.count, "pano-post") %>
+      </span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+    <section class="user-stats-timestamp">
+      <% if current_user.admin? %>
+        <p>Account created on: <%= @user.created_at %></p>
+        <p>Account updated on: <%= @user.updated_at %></p>
+        <br>
+        <p>The time is now: <%= Time.now %></p>
+      <% end %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-xs-12 col-md-8">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3 class="micropost_count">Pano-posts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-      <%= will_paginate @microposts %>
+      <div class="center primary-font">
+        <%= will_paginate @microposts, previous_label: "<", 
+                                   next_label: ">" %>
+      </div>
     <% end %>
   </div>
 </div>
-
-
-<p>Account created on: <%= @user.created_at %></p>
-<p>Account updated on: <%= @user.updated_at %></p>
-<br>
-<p>The time is now: <%= Time.now %></p>

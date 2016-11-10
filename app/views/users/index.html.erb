@@ -1,11 +1,18 @@
-<% provide(:title, "All Panogramosaurs") %>
-<h1>All Panogramosaurs</h1>
+<% provide(:title, "All Panogrammers") %>
+<h1 class="page-title center">All Panogrammers</h1>
 
-<%= will_paginate %>
+<div class="col-xs-4 col-xs-offset-4 row">
 
-<ul class="users">
-  <%= render @users %>
-  <!-- Rails infers that @users is a list of User objects; Rails automatically iterates through them and renders each one with the _user.html.erb partial (inferring the name of the partial from the name of the class). -->
-</ul>
+  <div class="center primary-font">
+    <%= will_paginate @users, previous_label: "<", next_label: ">" %>
+  </div>
 
-<%= will_paginate %>
+  <ul class="users">
+    <%= render @users %>
+    <!-- Rails infers that @users is a list of User objects; Rails automatically iterates through them and renders each one with the _user.html.erb partial (inferring the name of the partial from the name of the class). -->
+  </ul>
+
+  <div class="center primary-font">
+    <%= will_paginate @users, previous_label: "<", next_label: ">" %>
+  </div>
+</div>
