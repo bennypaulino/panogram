@@ -26,7 +26,7 @@ class MicropostsController < ApplicationController
   end
 
   def update
-    @micropost = current_user.microposts.first#(micropost_params)
+    @micropost = current_user.microposts.first
     if @micropost.update_attributes(micropost_params)
       if params[:micropost][:picture].present?
         render :crop

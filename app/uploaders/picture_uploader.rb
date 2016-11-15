@@ -40,10 +40,13 @@ class PictureUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
   # end
-
   version :medium_res do
-    process :crop
     process :resize_to_limit => [720, 720]
+  end
+
+  version :medium_res_edited do
+    process :resize_to_limit => [720, 720]
+    process :crop
   end
 
   version :thumb do
@@ -55,18 +58,15 @@ class PictureUploader < CarrierWave::Uploader::Base
       resize_to_limit(720, 720)
 
       manipulate! do |img|
-        #img = MiniMagick::Image.open(url)
         x = model.crop_x.to_i
         y = model.crop_y.to_i
         w = model.crop_w.to_i
         h = model.crop_h.to_i
 
-        size = w << 'x' << h
-        offset = '+' << x << '+' << y
+        size = w.to_s << 'x' << h.to_s
+        offset = '+' << x.to_s << '+' << y.to_s
 
-        img.crop("#{size}#{offset}") # Doesn't return an image...
-        #img = yield(img) if block_given? # ...so you'll need to call it yourself
-        #img
+        img.crop("#{size}#{offset}")
       end
     end
   end

@@ -158,8 +158,12 @@
 .solid-line .jcrop-hline {
   background: #ffffff;
 }
-/* Fix for twitter bootstrap et al. */
+/* Fixes for twitter bootstrap et al. */
 .jcrop-holder img,
 img.jcrop-preview {
   max-width: none;
 }
+
+/*img.jcrop {
+  max-width: none;
+}*/
