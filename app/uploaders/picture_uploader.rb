@@ -41,6 +41,37 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   process :resize_to_fit => [50, 50]
   # end
 
+  version :medium_res do
+    process :crop
+    process :resize_to_limit => [720, 720]
+  end
+
+  version :thumb do
+    process :resize_to_limit => [100, 100]
+  end
+
+  def crop
+    if model.crop_x.present?
+      resize_to_limit(720, 720)
+
+      manipulate! do |img|
+        #img = MiniMagick::Image.open(url)
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+
+        size = w << 'x' << h
+        offset = '+' << x << '+' << y
+
+        img.crop("#{size}#{offset}") # Doesn't return an image...
+        #img = yield(img) if block_given? # ...so you'll need to call it yourself
+        #img
+      end
+    end
+  end
+
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
