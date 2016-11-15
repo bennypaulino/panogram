@@ -40,6 +40,37 @@ class PictureUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
   # end
+  version :medium_res do
+    process :resize_to_limit => [720, 720]
+  end
+
+  version :medium_res_edited do
+    process :resize_to_limit => [720, 720]
+    process :crop
+  end
+
+  version :thumb do
+    process :resize_to_limit => [100, 100]
+  end
+
+  def crop
+    if model.crop_x.present?
+      resize_to_limit(720, 720)
+
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+
+        size = w.to_s << 'x' << h.to_s
+        offset = '+' << x.to_s << '+' << y.to_s
+
+        img.crop("#{size}#{offset}")
+      end
+    end
+  end
+
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

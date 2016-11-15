@@ -13,7 +13,7 @@ $link-color-hover: #50015B;
   box-sizing: border-box;
 }
 
-/* --------- UNIVERSAL ----------- */
+/* --------------------------- UNIVERSAL ----------------------------- */
 
 body {
   padding-top: 4em;
@@ -39,7 +39,7 @@ textarea {
   background-color: rgba(110, 201, 13, 0.12);
 }*/
 
-/* ----------- typography -------------- */
+/* --------------------------- typography --------------------------- */
 
 .primary-font {
   font-family: 'Gruppo', cursive;
@@ -80,7 +80,7 @@ p {
   font-weight: 800;
 }
 
-/* ------------- HEADER --------------- */
+/* -------------------------- HEADER ---------------------------- */
 #logo {
   float: left;
   margin-right: .7em;
@@ -113,7 +113,7 @@ p {
 }
 
 
-/* --------------- FOOTER ----------------- */
+/* --------------------------- FOOTER ------------------------------ */
 footer {
   margin-top: 3.5em;
   padding-top: .2em;
@@ -149,7 +149,7 @@ footer {
   color: $link-color-hover;
 }
 
-/* --------------- landing page --------------------------  */
+/* ------------------------ landing page --------------------------  */
 .jumbotron {
   padding: 10em 0;
   font-family: 'Gruppo', cursive;
@@ -189,7 +189,7 @@ footer {
   } 
 }
 
-/* --------------- forms --------------------------  */
+/* ----------------------------- forms -------------------------------  */
 input, textarea, select, .uneditable-input {
   border-collapse: 1px solid #bbb;
   width: 100%;
@@ -325,7 +325,7 @@ label.control-label {
   letter-spacing: .04em;
 }
 
-/* ------------------------ Users index ----------------------- */
+/* ---------------------------- Users index ----------------------- */
 .users {
   list-style: none;
   margin: 0;
@@ -449,7 +449,7 @@ aside {
   font-family: 'Gruppo', cursive;
 }
 
-/*  ---------------  microposts  -------------------  */
+/*  -------------------------  microposts  -------------------------  */
 .micropost_count {
   font-family: 'Gruppo', cursive;
   letter-spacing: .3em;
@@ -574,7 +574,7 @@ span.picture {
   padding: 0;
 }
 
-/*  --------------  follow / followers ---------------------- */
+/*  --------------------  follow / followers ---------------------- */
 .show-follow-followers {
   margin-top: 1.8em;
   .users-list a {
@@ -590,7 +590,7 @@ span.picture {
 
 
 
-/*  ----------------  pagination  -------------------------  */
+/*  ------------------------  pagination  -------------------------  */
 
 .pagination:before,
 .pagination:after {
@@ -675,7 +675,7 @@ span.picture {
   transition: 1s;
 }
 
-/* --------------- Static Pages ----------------- */
+/* -------------------------- Static Pages ----------------------------- */
 .hint {
   font-size: 1.2em;
   letter-spacing: .1em;
