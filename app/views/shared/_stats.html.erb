@@ -14,4 +14,10 @@ picks the right one using by using... -->
     </strong>
     followers
   </a>
+  <a href="<%= liked_posts_user_path(@user) %>">
+    <strong id="liked-posts" class="stat">
+      <%= @user.likes.count %>
+    </strong>
+    liked
+  </a>
 </div>

@@ -24,10 +24,20 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
       post microposts_path, params: { micropost: { content: content,
                                                    picture: picture } }
     end
+    assert_response :success
+    assert_template :crop
     #most_recent = assigns(:micropost)
     #assert most_recent.picture?
     # previous two lines are the same as saying the following:
     assert @user.microposts.first.picture?
+
+    # request to edit picture
+    patch micropost_path(@user.microposts.first), params: { "micropost"=>
+                                                  {"crop_x"=>"239",
+                                                   "crop_y"=>"21",
+                                                   "crop_w"=>"256",
+                                                   "crop_h"=>"274"} }
+
     assert_redirected_to home_path
     follow_redirect!
     assert_match content, response.body

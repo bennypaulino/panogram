@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :microposts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :micropost,
+            dependent: :destroy
   # dependent: :destroy prevents userless microposts from being stranded in the
   # database when admins choose to remove users from the system
 
@@ -114,6 +117,19 @@ class User < ApplicationRecord
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def liking?(micropost)
+    liked_posts.include?(micropost)
+  end
+
+  def like_post(other_micropost)
+    likes.create(micropost_id: other_micropost.id)
+  end
+
+  # Stop liking a particular micropost
+  def dislike(other_micropost)
+    likes.find_by(micropost_id: other_micropost.id).destroy
   end
 
   private

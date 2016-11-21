@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
+  before_action :logged_in_user, except: [:new, :create]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -59,6 +58,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  def liked_posts
+    @title = "Liked Pano-posts"
+    @user = User.find(params[:id])
+    @panoposts = @user.liked_posts.paginate(page: params[:page])
+    render 'show_liked_posts'
+  end
+
+  def likes
+    @title = "Likes"
+    @user = User.find(params[:id])
+    @panoposts = @user.likes.paginate(page: params[:page])
+    render 'show_liked_posts'
   end
 
   private

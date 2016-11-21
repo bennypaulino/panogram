@@ -5,11 +5,11 @@
 
   <%= form_for @micropost do |f| %>
     <% %w[x y w h].each do |attribute| %>
-      <%= f.text_field "crop_#{attribute}" %><br>
-      <%#= f.hidden_field "crop_#{attribute}" %>
+      <%#= f.text_field "crop_#{attribute}" %><br>
+      <%= f.hidden_field "crop_#{attribute}" %>
       <% end %>
     <div class="actions form-group">
-      <%= f.submit "Crop", class: "btn btn-submit" %>
+      <%= f.submit "Save Changes", class: "btn btn-submit" %>
     </div>
   <% end %>
 

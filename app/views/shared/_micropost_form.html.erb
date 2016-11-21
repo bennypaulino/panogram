@@ -1,15 +1,17 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f|%>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :content, placeholder: "Compose new pano-post..." %>
   </div>
   <br>
-  <%= f.submit "Post", class: "btn btn-submit" %>
-  <br>
+
   <span class="picture">
     <%= f.file_field :picture, 
                       accept: 'image/jpeg,image/jpg/,image/gif,image/png' %>
   </span>
+  <br>
+
+  <%= f.submit "Post", class: "btn btn-submit" %>
 <% end %>
 
 <script type="text/javascript">

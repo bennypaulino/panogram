@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031214209) do
+ActiveRecord::Schema.define(version: 20161116183927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "micropost_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["micropost_id", "user_id"], name: "index_likes_for_uniqueness", unique: true, using: :btree
+    t.index ["micropost_id"], name: "index_likes_on_micropost_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -53,5 +63,7 @@ ActiveRecord::Schema.define(version: 20161031214209) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "likes", "microposts"
+  add_foreign_key "likes", "users"
   add_foreign_key "microposts", "users"
 end

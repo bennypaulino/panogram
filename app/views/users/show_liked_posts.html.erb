@@ -1,0 +1,28 @@
+<% provide(:title, @title) %>
+<div class="row show-follow-followers">
+  <aside class="col-xs-12 col-md-4">
+    <section class="user_info">
+      <div id="gravatar-adjust"><%= gravatar_for @user %></div>
+      <h1 class="primary-font" id="user_info_show_name"><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span class="sidebar-post-count">
+        <%= pluralize(current_user.microposts.count, "pano-post") %>
+      </span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3 class="page-title"><%= @title %></h3>
+    <% if @panoposts.any? %>
+      <ul class="users follow">
+        <%= render @panoposts %>
+      </ul>
+      <div class="pagination center primary-font">
+        <%= will_paginate @panoposts, previous_label: "<", 
+                           next_label: ">", :container => false %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -304,6 +304,26 @@ label.control-label {
   }
 }
 
+.heart {
+/*  background: url(../images/heart_outline.png);
+  text-indent: -9999em;*/
+  height: auto;
+  width: auto;
+  max-height: 1.2em;
+  max-width: 1.4em;
+/*  float: left;*/
+  margin-right: .6em;
+/*  cursor: pointer;*/
+}
+
+#new_like {
+  display: inline;
+}
+
+.edit_like {
+  display: inline;
+}
+
 .btn-submit {
   font-family: 'Gruppo', cursive;
   letter-spacing: .2em;
@@ -323,6 +343,16 @@ label.control-label {
 .new-user {
   font-size: 1.5em;
   letter-spacing: .04em;
+}
+
+/* text-field for new micropost form */
+aside {
+  textarea {
+    height: 7em;
+    margin-bottom: .4em;
+    letter-spacing: .1em;
+    font-weight: 600;
+  }
 }
 
 /* ---------------------------- Users index ----------------------- */
@@ -480,22 +510,32 @@ aside {
     display: block;
     margin-left: 4em;
     margin-top: 0.5em;
+    margin-bottom: 1em;
     img {
       /*display: block;*/
       padding: .3em 0;
       margin-top: 1em;
+      margin-bottom: 1em;
     }
   }
   .timestamp {
     color: #d8d8d8;
-    display: block;
-    margin-left: 4em;
+    /*display: block;*/
+    margin-left: 1em;
     a {
-      color: $link-color;
+      margin-left: 1em;
+      color: rgba(130, 12, 146, 0.82);
       &:hover {
         color: #B22A03;
         text-decoration: none;
       }
+    }
+  }
+  #admirers {
+    color: rgba(130, 12, 146, 0.82);
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: none;
     }
   }
   .gravatar {
@@ -514,14 +554,6 @@ aside {
   font-weight: 800;
   letter-spacing: .4em;
   margin-top: 1.3em;
-}
-
-aside {
-  textarea {
-    height: 7em;
-    margin-bottom: .4em;
-    letter-spacing: .1em;
-  }
 }
 
 span.picture {
@@ -572,6 +604,12 @@ span.picture {
 
 .users.follow {
   padding: 0;
+}
+
+.microposts .micropost-info {
+  a {
+    text-decoration: none;
+  }
 }
 
 /*  --------------------  follow / followers ---------------------- */

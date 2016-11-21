@@ -144,4 +144,18 @@ class UserTest < ActiveSupport::TestCase
       assert_not lebowski.feed.include?(post_unfollowed)
     end
   end
+
+  test "should like and unlike a micropost" do
+    dude = users(:lebowski)
+    walter = users(:walter)
+    micropost = microposts(:pacifism)
+
+    assert_not dude.liking?(micropost)
+    dude.like_post(micropost)
+    assert dude.liking?(micropost)
+    assert micropost.admirers.include?(dude)
+    dude.dislike(micropost)
+    assert_not dude.liking?(micropost)
+    assert micropost.reload.id > 0
+  end
 end
