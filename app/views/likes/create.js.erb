@@ -1,3 +1,5 @@
-// $("#like_form").html("<%= escape_javascript(render('microposts/like_form')) %>");
-$("#like_form").html("<%= escape_javascript(render('microposts/dislike')) %>");
-$("#admirers").html("<%= @micropost.admirers.count %>");
+$("#like_form_<%= @micropost.id %>").html("<%= escape_javascript(render(partial: 'microposts/like_form', locals: { micropost: @micropost } )) %>");
+
+$("#admirers_<%= @micropost.id %>").html("<%= pluralize(@micropost.likes.count, "like") %>");
+// pluralize(micropost.likes.count, "like")
+// escape_JavaScript("<%#=render partial: partial_name, locals=>{micropost=>micropost}%>")

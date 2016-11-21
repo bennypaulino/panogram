@@ -14,7 +14,7 @@
 
     <a href="#">
     <!-- <a href="admirers_micropost_path"> -->
-      <span id="admirers">
+      <span id="admirers_<%= micropost.id %>" class="admirers">
         <%= pluralize(micropost.likes.count, "like") %>
       </span>
     </a>
