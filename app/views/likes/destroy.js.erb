@@ -1,7 +1,5 @@
-// $("#like_form").html("<%#= escape_javascript(render('microposts/like_form')) %>");
-$("#like_form_<%= @micropost.id %>").html("<%= escape_javascript(render('microposts/like_form', micropost: @micropost)) %>");
 
-// $("#like_form").html("<%#= escape_javascript(render('microposts/like_form', micropost: @micropost)) %>");
-// $("#like_form").html("<%#= escape_javascript(render('microposts/like')) %>");
-// $("#admirers").html("<%#= micropost.admirers.count %>");
+// $("#like_form_<%#= @micropost.id %>").html("<%= escape_javascript(render('microposts/like_form', micropost: @micropost)) %>");
+$("#like_form_<%= @micropost.id %>").html("<%= escape_javascript(render('microposts/like', micropost: @micropost)) %>");
+
 $("#admirers_<%= @micropost.id %>").html("<%= pluralize(@micropost.likes.count, 'like') %>");

@@ -1,31 +1,31 @@
 <span id="like_form_<%= micropost.id %>" class="like_form">
   <% if current_user.liking?(micropost) %>
-    <%#= render 'microposts/dislike', micropost_id: micropost.id %>
+    <%= render 'microposts/dislike', micropost: micropost %>
 
     <!--   A form for DISliking using Ajax -->  
-    <span>
-      <%= form_for(current_user.likes.find_by(micropost_id: micropost.id),
+    <!-- <span> -->
+      <%#= form_for(current_user.likes.find_by(micropost_id: micropost.id),
                                               html: { method: :delete }, 
                                               remote: true) do |f| %>
 
-        <%= hidden_field_tag :micropost_id, micropost.id %>
+        <%#= hidden_field_tag :micropost_id, micropost.id %>
 
-        <%= image_submit_tag("/assets/heart_solid.png", 
+        <%#= image_submit_tag("/assets/heart_solid.png", 
                               class: 'heart', alt: 'click to dislike') %>
-      <% end %>
-    </span>
+      <%# end %>
+    <!-- </span> -->
 
   <% else %>      
-    <%#= render 'microposts/like', micropost_id: micropost.id %>
+    <%= render 'microposts/like', micropost: micropost %>
 
     <!--   A form for LIKING a micropost using Ajax -->  
-    <%= form_for(current_user.likes.build, remote: true) do |f| %>
-      <span>
-        <%= hidden_field_tag :micropost_id, micropost.id %>
-      </span>
-        <%= image_submit_tag("/assets/heart_outline.png", 
+    <%#= form_for(current_user.likes.build, remote: true) do |f| %>
+      <!-- <span> -->
+        <%#= hidden_field_tag :micropost_id, micropost.id %>
+      <!-- </span> -->
+        <%#= image_submit_tag("/assets/heart_outline.png", 
                               class: 'heart', alt: 'click to like') %>
-    <% end %>
+    <%# end %>
 
   <% end %>
 </span>
