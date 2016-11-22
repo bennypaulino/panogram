@@ -23,12 +23,13 @@
   <div class="col-md-8">
     <h3 class="page-title"><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users follow microposts">
         <%= render @users %>
       </ul>
       <div class="pagination center primary-font">
         <%= will_paginate @users, previous_label: "<", 
-                           next_label: ">", :container => false %>
+                                  next_label: ">", 
+                                  :container => false %>
       </div>
     <% end %>
   </div>

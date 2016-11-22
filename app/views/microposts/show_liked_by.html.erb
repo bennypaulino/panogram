@@ -1,0 +1,15 @@
+<div class="col-md-8">
+    <h3 class="page-title"><%= @title %></h3>
+
+    <%= render 'microposts/micropost', micropost: @micropost %>
+
+    <% if @micropost.admirers.any? %>
+      <ul class="users microposts">
+        <%= render @micropost.admirers %>
+      </ul>
+      <div class="pagination center primary-font">
+        <%= will_paginate @users, previous_label: "<", 
+                           next_label: ">", :container => false %>
+      </div>
+    <% end %>
+  </div>
