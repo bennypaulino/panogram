@@ -1,8 +1,24 @@
-<div class="col-md-8">
+  <div class="row show-follow-followers">
+  <aside class="col-xs-12 col-md-4">
+    <section class="user_info">
+      <div id="gravatar-adjust"><%= gravatar_for @user %></div>
+      <h1 class="primary-font" id="user_info_show_name"><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span class="sidebar-post-count">
+        <%= pluralize(current_user.microposts.count, "panogram") %>
+      </span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8 micropost-admirers microposts">
     <h3 class="page-title"><%= @title %></h3>
 
     <%= render 'microposts/micropost', micropost: @micropost %>
+    <br>
 
+    <h4 class="page-title"><%= @sub_title %></h4>
     <% if @micropost.admirers.any? %>
       <ul class="users microposts">
         <%= render @micropost.admirers %>
@@ -13,3 +29,4 @@
       </div>
     <% end %>
   </div>
+</div>

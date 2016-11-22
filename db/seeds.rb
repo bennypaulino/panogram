@@ -1,4 +1,4 @@
-User.create!(name: "Example User",
+User.create!(name: "Pan Optic",
              email: "example@panogram.com",
              username: "widelux",
              password: "password",

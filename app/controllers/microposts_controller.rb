@@ -41,8 +41,10 @@ class MicropostsController < ApplicationController
   end
 
   def admirers
-    @title = "Liked by..."
+    @title = "The following..."
+    @sub_title = "Is liked by..."
     @micropost = Micropost.find(params[:id])
+    @user = current_user
     @users = @micropost.admirers.paginate(page: params[:page])
     render 'show_liked_by'
   end
