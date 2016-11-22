@@ -11,23 +11,16 @@
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
-          <% end %>
-        </div>
-      <% end %>
     </section>
   </aside>
   <div class="col-md-8">
     <h3 class="page-title"><%= @title %></h3>
-    <% if @users.any? %>
+    <% if @panoposts.any? %>
       <ul class="users follow">
-        <%= render @users %>
+        <%= render @panoposts %>
       </ul>
       <div class="pagination center primary-font">
-        <%= will_paginate @users, previous_label: "<", 
+        <%= will_paginate @panoposts, previous_label: "<", 
                            next_label: ">", :container => false %>
       </div>
     <% end %>

@@ -295,13 +295,29 @@ label.control-label {
   font-family: 'Gruppo', cursive;
   letter-spacing: .2em;
   &:hover {
-    color: red;
+    color: $link-color;
     background-color: rgba(178, 42, 3, 0.15);
     transition: 1s;
     font-weight: 800;
     letter-spacing: .6em;
     box-shadow: 0 3px 6px 0 #ecd1c0;
   }
+}
+
+.heart {
+  height: auto;
+  width: auto;
+  max-height: 1.2em;
+  max-width: 1.4em;
+  margin-right: .6em;
+}
+
+#new_like {
+  display: inline;
+}
+
+.edit_like {
+  display: inline;
 }
 
 .btn-submit {
@@ -323,6 +339,24 @@ label.control-label {
 .new-user {
   font-size: 1.5em;
   letter-spacing: .04em;
+}
+
+/* text-field for new micropost form */
+aside {
+  textarea {
+    height: 7em;
+    margin-bottom: .4em;
+    letter-spacing: .1em;
+    font-weight: 600;
+  }
+}
+
+.jcrop-centered {
+  display: inline-block;
+}
+
+.crop-image-wrapper {
+  text-align: center;
 }
 
 /* ---------------------------- Users index ----------------------- */
@@ -480,22 +514,32 @@ aside {
     display: block;
     margin-left: 4em;
     margin-top: 0.5em;
+    margin-bottom: 1em;
     img {
       /*display: block;*/
       padding: .3em 0;
       margin-top: 1em;
+      margin-bottom: 1em;
     }
   }
   .timestamp {
     color: #d8d8d8;
-    display: block;
-    margin-left: 4em;
+    /*display: block;*/
+    margin-left: 1em;
     a {
-      color: $link-color;
+      margin-left: 1em;
+      color: rgba(130, 12, 146, 0.82);
       &:hover {
         color: #B22A03;
         text-decoration: none;
       }
+    }
+  }
+  .admirers {
+    color: rgba(130, 12, 146, 0.82);
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: none;
     }
   }
   .gravatar {
@@ -514,14 +558,6 @@ aside {
   font-weight: 800;
   letter-spacing: .4em;
   margin-top: 1.3em;
-}
-
-aside {
-  textarea {
-    height: 7em;
-    margin-bottom: .4em;
-    letter-spacing: .1em;
-  }
 }
 
 span.picture {
@@ -572,6 +608,12 @@ span.picture {
 
 .users.follow {
   padding: 0;
+}
+
+.microposts .micropost-info {
+  a {
+    text-decoration: none;
+  }
 }
 
 /*  --------------------  follow / followers ---------------------- */

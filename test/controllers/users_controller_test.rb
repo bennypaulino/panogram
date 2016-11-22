@@ -100,4 +100,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get followers_user_path(@user)
     assert_redirected_to login_url
   end
+
+  test "should redirect access to Liked Panoposts page when not logged in" do
+    get liked_posts_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test "should redirect attempt to access Likes Page when not logged in" do
+    get likes_user_path(@user)
+    assert_redirected_to login_url
+  end
 end

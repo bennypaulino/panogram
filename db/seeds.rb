@@ -1,6 +1,6 @@
 User.create!(name: "Example User",
              email: "example@panogram.com",
-             username: "blah",
+             username: "widelux",
              password: "password",
              password_confirmation: "password",
              admin: true,
@@ -34,3 +34,15 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+# Liking microposts
+microposts = Micropost.all
+good_microposts = microposts[1..20]
+cool_microposts = microposts[2..12]
+cooler_microposts = microposts[4..10]
+user2 = users.second
+user3 = users.third
+user4 = users.fourth
+good_microposts.each { |m| user2.like_post(m) }
+cool_microposts.each { |m| user3.like_post(m) }
+cooler_microposts.each { |m| user4.like_post(m) }
