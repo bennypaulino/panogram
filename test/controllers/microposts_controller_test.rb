@@ -27,4 +27,9 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "should redirect attempt to access admirers page when not logged in" do
+    get admirers_micropost_path(@micropost)
+    assert_redirected_to login_url
+  end
 end

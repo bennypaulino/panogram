@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :update]
+  before_action :logged_in_user #, only: [:create, :destroy, :update]
   before_action :correct_user, only: [:update, :destroy]
 
   def create
@@ -38,6 +38,15 @@ class MicropostsController < ApplicationController
       @feed_items = []
       render 'static_pages/home'
     end
+  end
+
+  def admirers
+    @title = "The following..."
+    @sub_title = "Is liked by..."
+    @micropost = Micropost.find(params[:id])
+    @user = current_user
+    @users = @micropost.admirers.paginate(page: params[:page])
+    render 'show_liked_by'
   end
 
   private

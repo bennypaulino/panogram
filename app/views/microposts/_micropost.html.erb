@@ -15,7 +15,7 @@
   <div class="micropost-info col-xs-offset-4">
     <%= render 'microposts/like_form', micropost: micropost %> 
 
-    <a href="#">
+    <a href="<%= admirers_micropost_path(micropost) %>">
       <span id="admirers_<%= micropost.id %>" class="admirers">
         <%= pluralize(micropost.likes.count, "like") %>
       </span>

@@ -1,5 +1,4 @@
-<% provide(:title, @title) %>
-<div class="row show-follow-followers">
+  <div class="row show-follow-followers">
   <aside class="col-xs-12 col-md-4">
     <section class="user_info">
       <div id="gravatar-adjust"><%= gravatar_for @user %></div>
@@ -11,25 +10,22 @@
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
-          <% end %>
-        </div>
-      <% end %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-8 micropost-admirers microposts">
     <h3 class="page-title"><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow microposts">
-        <%= render @users %>
+
+    <%= render 'microposts/micropost', micropost: @micropost %>
+    <br>
+
+    <h4 class="page-title"><%= @sub_title %></h4>
+    <% if @micropost.admirers.any? %>
+      <ul class="users microposts">
+        <%= render @micropost.admirers %>
       </ul>
       <div class="pagination center primary-font">
         <%= will_paginate @users, previous_label: "<", 
-                                  next_label: ">", 
-                                  :container => false %>
+                           next_label: ">", :container => false %>
       </div>
     <% end %>
   </div>
