@@ -1,6 +1,5 @@
 class Micropost < ApplicationRecord
   belongs_to :user
-  # next line may be redundant since you can do: micropost.admirers.count
   has_many :likes, dependent: :destroy
   has_many :admirers, through: :likes, source: :user, dependent: :destroy
 
@@ -8,8 +7,10 @@ class Micropost < ApplicationRecord
 
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
+
   # Use the singular to call a custom-rolled validation
   validate :picture_size
+
   # Trigger the cropping of an image with a callback
   after_update :crop_picture
 

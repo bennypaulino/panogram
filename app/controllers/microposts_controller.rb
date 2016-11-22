@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       if params[:micropost][:picture].present?
         render :crop
       else
-        flash[:success] = "Pano-post created!"
+        flash[:success] = "New panogram created!"
         redirect_to home_path # request.referrer || root_url
       end
     else
@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
       if params[:micropost][:picture].present?
         render :crop
       else
-        flash[:success] = "Pano-post created!"
+        flash[:success] = "New panogram created!"
         redirect_to home_path
       end
     else

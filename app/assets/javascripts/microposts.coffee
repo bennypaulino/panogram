@@ -7,6 +7,7 @@ jQuery ->
 class PictureCropper
   constructor: ->
     $('#cropbox').Jcrop
+      addClass: 'jcrop-centered'
       setSelect: [0, 0, 720, 270]
       onSelect: @update
       onChange: @update

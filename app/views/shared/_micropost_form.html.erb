@@ -1,7 +1,7 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f|%>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new pano-post..." %>
+    <%= f.text_area :content, placeholder: "Compose a new panogram..." %>
   </div>
   <br>
 

@@ -1,10 +1,13 @@
 <li id="micropost-<%= micropost.id %>">
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+  <span class="user">
+    <%= link_to micropost.user.username, micropost.user %>
+  </span>
   <span class="content text-left">
     <!-- picture? method is created automatically by CarrierWave based on the name of the image attribute. -->
     <% if micropost.picture? %>
-      <%= image_tag micropost.picture.url(:medium_res_edited), class: 'img-responsive center-block' %>
+      <%= image_tag micropost.picture.url(:medium_res_edited), 
+                                          class: 'img-responsive center-block' %>
     <% end %>
     <%= micropost.content %>
   </span>
@@ -13,7 +16,6 @@
     <%= render 'microposts/like_form', micropost: micropost %> 
 
     <a href="#">
-    <!-- <a href="admirers_micropost_path"> -->
       <span id="admirers_<%= micropost.id %>" class="admirers">
         <%= pluralize(micropost.likes.count, "like") %>
       </span>

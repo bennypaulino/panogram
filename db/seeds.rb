@@ -1,6 +1,6 @@
 User.create!(name: "Example User",
              email: "example@panogram.com",
-             username: "blah",
+             username: "widelux",
              password: "password",
              password_confirmation: "password",
              admin: true,

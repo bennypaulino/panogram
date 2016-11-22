@@ -6,7 +6,7 @@
       <h1 class="primary-font" id="user_info_show_name"><%= @user.name %></h1>
       <span><%= link_to "view my profile", @user %></span>
       <span class="sidebar-post-count">
-        <%= pluralize(current_user.microposts.count, "pano-post") %>
+        <%= pluralize(current_user.microposts.count, "panogram") %>
       </span>
     </section>
     <section class="stats">

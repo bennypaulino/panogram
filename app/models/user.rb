@@ -119,10 +119,12 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # Returns true if the current user likes a given micropost.
   def liking?(micropost)
     liked_posts.include?(micropost)
   end
 
+  # Begin liking a micropost
   def like_post(other_micropost)
     likes.create(micropost_id: other_micropost.id)
   end

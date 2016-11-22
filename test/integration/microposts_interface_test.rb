@@ -57,15 +57,15 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   test "micropost sidebar count" do
     log_in_as(@user)
     get home_path
-    assert_match "35 pano-posts", response.body
+    assert_match "35 panograms", response.body
 
     # User with zero microposts
     other_user = users(:kenobi)
     log_in_as(other_user)
     get home_path
-    assert_match "0 pano-posts", response.body
+    assert_match "0 panograms", response.body
     other_user.microposts.create!(content: "That's no moon, it's a space station!")
     get home_path
-    assert_match "1 pano-post", response.body
+    assert_match "1 panogram", response.body
   end
 end

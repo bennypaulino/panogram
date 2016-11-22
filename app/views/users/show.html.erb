@@ -7,7 +7,7 @@
         <%= @user.name %>
       </h1>
       <span class="sidebar-post-count" id="post-count-adjust">
-        <%= pluralize(current_user.microposts.count, "pano-post") %>
+        <%= pluralize(current_user.microposts.count, "panogram") %>
       </span>
     </section>
     <section class="stats">
@@ -25,7 +25,9 @@
   <div class="col-xs-12 col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h3 class="micropost_count">Pano-posts (<%= @user.microposts.count %>)</h3>
+      <h3 class="micropost_count">
+        Panograms (<%= @user.microposts.count %>)
+      </h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>

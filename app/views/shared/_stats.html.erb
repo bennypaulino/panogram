@@ -1,5 +1,5 @@
 <!-- Stats are on both the user show pages and the home page, so the following
-picks the right one using by using... -->
+picks the right one by using... -->
 <% @user ||= current_user %>
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">

@@ -1,15 +1,17 @@
 <h1 class="center page-title">Crop Your Awesome Image</h1>
 <br>
-<div class="center">
+<div class="crop-image-wrapper">
   <%= image_tag @micropost.picture_url(:medium_res), id: "cropbox" %>
 
   <%= form_for @micropost do |f| %>
     <% %w[x y w h].each do |attribute| %>
-      <%#= f.text_field "crop_#{attribute}" %><br>
+      <%#= f.text_field "crop_#{attribute}" %>
       <%= f.hidden_field "crop_#{attribute}" %>
       <% end %>
+    <br>
     <div class="actions form-group">
-      <%= f.submit "Save Changes", class: "btn btn-submit" %>
+      <%= f.submit "Save Changes", 
+                    class: "btn btn-submit col-xs-offset-4 col-xs-4" %>
     </div>
   <% end %>
 

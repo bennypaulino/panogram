@@ -295,7 +295,7 @@ label.control-label {
   font-family: 'Gruppo', cursive;
   letter-spacing: .2em;
   &:hover {
-    color: red;
+    color: $link-color;
     background-color: rgba(178, 42, 3, 0.15);
     transition: 1s;
     font-weight: 800;
@@ -349,6 +349,14 @@ aside {
     letter-spacing: .1em;
     font-weight: 600;
   }
+}
+
+.jcrop-centered {
+  display: inline-block;
+}
+
+.crop-image-wrapper {
+  text-align: center;
 }
 
 /* ---------------------------- Users index ----------------------- */

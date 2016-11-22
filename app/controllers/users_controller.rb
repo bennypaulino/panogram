@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def liked_posts
-    @title = "Liked Pano-posts"
+    @title = "Liked Panograms"
     @user = User.find(params[:id])
     @panoposts = @user.liked_posts.paginate(page: params[:page])
     render 'show_liked_posts'
