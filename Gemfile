@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.5'
 # Converts Less to Sass and make Bootstrap available
 gem 'bootstrap-sass', '3.3.6'
 
+# Jquery-based component library, used to style the file fields of forms
+gem 'bootstrap-filestyle-rails'
+
 # Create pagination links
 gem 'will_paginate', '~> 3.1.0'
 

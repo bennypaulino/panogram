@@ -3,10 +3,15 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose a new panogram..." %>
   </div>
-  <br>
 
   <span class="picture">
     <%= f.file_field :picture, 
+                      class: "filestyle",
+                      'data-size' => 'sm',
+                      'data-buttonName' => "btn-choose",
+                      'data-buttonBefore' => true,
+                      'data-buttonText' => 'Choose image',
+                      'data-placeholder' => 'No image yet...',
                       accept: 'image/jpeg,image/jpg/,image/gif,image/png' %>
   </span>
   <br>

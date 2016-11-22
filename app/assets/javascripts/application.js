@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery.Jcrop
 //= require bootstrap
+//= require bootstrap-filestyle
 //= require turbolinks
 //= require_tree .

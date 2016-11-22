@@ -41,7 +41,7 @@ class MicropostsController < ApplicationController
   end
 
   def admirers
-    @title = "The following..."
+    @title = "This panogram..."
     @sub_title = "Is liked by..."
     @micropost = Micropost.find(params[:id])
     @user = current_user

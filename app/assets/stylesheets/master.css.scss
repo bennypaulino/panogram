@@ -351,6 +351,26 @@ aside {
   }
 }
 
+.btn-choose {
+  background-color: rgba(166, 233, 94, 0.34);
+  height: 2.6em;
+  margin: 0 auto;
+  &:hover {
+    background-color: rgba(166, 233, 94, 0.5);
+    transition: 0.8s;
+    box-shadow: 0 3px 6px 0 #77b36b;
+  }
+}
+/*Choose image button on the left side*/
+.bootstrap-filestyle .input-group-btn .btn-sm {
+  border-radius: 5px;
+}
+/*Right side of the choose image button*/
+.picture input.form-control.input-sm {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 .jcrop-centered {
   display: inline-block;
 }
@@ -428,6 +448,10 @@ aside {
       margin-bottom: .2em;
       margin-top: 0.8em;
       line-height: 1;
+    }
+    .picture span {
+      margin: -0.06em auto;
+      line-height: 0;
     }
     h1 {
       text-align: left;
