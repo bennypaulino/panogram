@@ -9,11 +9,11 @@ class MicropostsController < ApplicationController
         render :crop
       else
         flash[:success] = "New panogram created!"
-        redirect_to home_path # request.referrer || root_url
+        redirect_to root_path # request.referrer || root_url
       end
     else
       @feed_items = []
-      render 'static_pages/home'
+      render 'welcome/index'
     end
   end
 
@@ -32,7 +32,7 @@ class MicropostsController < ApplicationController
         render :crop
       else
         flash[:success] = "New panogram created!"
-        redirect_to home_path
+        redirect_to root_url
       end
     else
       @feed_items = []
