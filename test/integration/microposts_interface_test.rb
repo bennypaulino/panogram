@@ -7,7 +7,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
 
   test "micropost interface" do
     log_in_as(@user)
-    get home_path
+    get root_path
     assert_select 'div.pagination'
     assert_select 'input[type="file"]'
 
@@ -38,7 +38,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
                                                    "crop_w"=>"256",
                                                    "crop_h"=>"274"} }
 
-    assert_redirected_to home_path
+    assert_redirected_to root_path
     follow_redirect!
     assert_match content, response.body
 
@@ -56,16 +56,21 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
 
   test "micropost sidebar count" do
     log_in_as(@user)
-    get home_path
+    get root_path
     assert_match "35 panograms", response.body
 
     # User with zero microposts
     other_user = users(:kenobi)
     log_in_as(other_user)
-    get home_path
+    get root_path
     assert_match "0 panograms", response.body
     other_user.microposts.create!(content: "That's no moon, it's a space station!")
-    get home_path
+    get root_path
+    assert_match "1 panogram", response.body
+
+    # User with zero panograms visits another user who has posted once
+    log_in_as(users(:lebowski))
+    get user_path(other_user)
     assert_match "1 panogram", response.body
   end
 end
