@@ -112,7 +112,42 @@ p {
   background-color: #bdf582;
 }
 
+.navbar-links {
+  letter-spacing: 0.4em;
+}
 
+/*@media(max-width: 498) {
+  #logo:hover {
+    letter-spacing: 0.9em;
+  }
+}*/
+
+@media(max-width: 361) {
+  #logo: {
+    letter-spacing: 0.3em;
+    }
+  #logo:hover {
+    letter-spacing: 0.7em;
+  }
+}
+
+/*@media(max-width: 340) {
+  #logo:hover {
+    letter-spacing: 0.6em;
+    &:hover {
+      letter-spacing: 0.3em;
+    }
+  }
+}*/
+
+/*@media(max-width: 321) {
+  #logo{
+    letter-spacing: 0.2em;
+    &:hover {
+      letter-spacing: 0.5em;
+    }
+  }
+}*/
 /* --------------------------- FOOTER ------------------------------ */
 footer {
   margin-top: 3.5em;
