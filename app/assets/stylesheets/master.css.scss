@@ -128,8 +128,14 @@ p {
   background-color: #bdf582;
 }
 
-#menu-collapse #nav-menu li a:hover {
-  color: #6ec90d;
+#menu-collapse #nav-menu li a {
+  color: #cefc9f;
+  &:active {
+    color: #6ec90d;
+  }
+  &:hover {
+    color: #6ec90d;
+  } 
 }
 
 #navigation .navbar-toggle .icon-bar {
@@ -142,9 +148,7 @@ p {
 
 @media(min-width: 768px) {
   #logo: {
-    float: left;
     margin-right: .7em;
-    margin-left: .5em;
     font-size: 1.7em;
     color: #fff;
     letter-spacing: .8em;
@@ -165,12 +169,27 @@ p {
   }
 }
 
-@media(min-width: 768px) {
+@media(min-width: 780px) {
   #logo:hover {
-    color: $accent-color;
-    text-decoration: none;
-    transition: 3s;
     letter-spacing: 1.4em;
+  }
+}
+
+@media(min-width: 500px) and (max-width: 779px) {
+  #logo:hover {
+    letter-spacing: 1.2em;
+  }
+}
+
+@media(min-width: 400px) and (max-width: 499px) {
+  #logo:hover {
+    letter-spacing: 1.0em;
+  }
+}
+
+@media(min-width: 275px) and (max-width: 309px) {
+  #logo:hover {
+    letter-spacing: 0.3em;
   }
 }
 
@@ -813,6 +832,9 @@ span.picture {
   margin-left: 33%;
   a {
     text-decoration: none;
+  }
+  @media (min-width: 500px) and (max-width: 643px) {
+  margin-left: 0;
   }
 }
 
