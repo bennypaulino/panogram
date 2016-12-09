@@ -9,14 +9,15 @@
 
     <%= javascript_include_tag 'application', 
                             'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Panogram, social, image, sharing, panoramic, photography, network, photos, images" /> 
     <%= render 'layouts/shim' %>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
 
-    <div class="container-fluid">
+    <div class="col-xs-12" id="outer-wrapper">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, 
                         class: "alert alert-#{message_type} alert-title") %>
@@ -25,11 +26,12 @@
     </div>
 
     <footer class="footer">
-      <small>
-        Share your panoramic images on &nbsp<%= link_to "panogram!", '/', 
-                                                class:'footer-stretch' %>
-      </small>
+      
       <nav>
+        <span>
+          Share your images on &nbsp
+        </span>
+        <%= link_to "Panogram", '/', class:'footer-stretch' %>
         <ul>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Contact", contact_path %></li>

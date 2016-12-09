@@ -2,9 +2,12 @@
   <ol class="microposts">
     <%= render @feed_items %>
   </ol>
-  <div class="pagination col-xs-10 col-xs-offset-1 primary-font">
+  <!-- <div class="pagination primary-font"> -->
     <!-- The controller will determine how many posts/page --> 
-    <%= will_paginate @feed_items, previous_label: "<", 
-                                   next_label: ">", :container => false %>
-  </div>
+    <%#= will_paginate @feed_items, previous_label: "<", 
+                                   next_label: ">",
+                                   inner_window: 1, 
+                                   outer_window: 1,
+                                   :container => false %>
+  <!-- </div> -->
 <% end %>
