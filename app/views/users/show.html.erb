@@ -31,9 +31,14 @@
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-      <div class="center primary-font">
-        <%= will_paginate @microposts, previous_label: "<", 
-                                   next_label: ">" %>
+      <div class="pagination-wrapper center">
+        <div class="pagination primary-font">
+          <%= will_paginate @microposts, previous_label: "<", 
+                                         next_label: ">",
+                                         inner_window: 1, 
+                                         outer_window: 0,
+                                         :container => false %>
+        </div>
       </div>
     <% end %>
   </div>

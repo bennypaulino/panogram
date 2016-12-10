@@ -96,6 +96,9 @@ p {
   font-family: 'Gruppo', cursive;
   letter-spacing: .3em;
   font-weight: 800;
+  @media(min-width: 275px) and (max-width: 399px) {
+    font-size: 2.5rem;
+  }
 }
 
 /* -------------------------- HEADER ---------------------------- */
@@ -103,7 +106,7 @@ p {
 #logo {
   float: left;
   font-size: 1.4em;
-  color: #fff;
+  color: #d4f9ad;
   letter-spacing: .2em;
   font-weight: bold;
   text-decoration: none;
@@ -129,17 +132,27 @@ p {
 }
 
 #menu-collapse #nav-menu li a {
-  color: #cefc9f;
+  color: #d4f9ad;
   &:active {
     color: #6ec90d;
   }
-  &:hover {
-    color: #6ec90d;
-  } 
+/*  &:hover {
+    color: #202817;
+  } */
 }
 
+#navbar-container #menu-collapse #nav-menu .dropdown-menu li a:hover {
+  color: #202817;
+  background-color: #bdf582;
+}
+
+/* hamburger menu icon */ 
 #navigation .navbar-toggle .icon-bar {
-  background-color: #6ec90d;
+  background-color: #d4f9ad;
+}
+
+#menu-collapse .nav .dropdown .dropdown-menu {
+  background-color: #000;
 }
 
 .navbar-links {
@@ -418,6 +431,11 @@ label.control-label {
   font-size: 1.2em;
   font-weight: 800;
   letter-spacing: .2em;
+}
+
+.alert-dismissible .close {
+  font-size: 4rem;
+  line-height: 0.5;
 }
 
 .field_with_errors {
@@ -754,15 +772,22 @@ aside {
   }
 }
 
-@media(max-width: 499px) {
-  .microposts .micropost-info .timestamp {
+.microposts .micropost-info .timestamp {
+  @media (min-width: 261px) and (max-width: 348px) {
     font-size: .7em;
+  }
+  @media (min-width: 349px) and (max-width: 399px) {
+    font-size: .8em;
+  }
+  @media (min-width: 400px) and (max-width: 499px) {
+    font-size: .9em;
   }
 }
 
 @media(max-width: 499px) {
   #layout-base .microposts .micropost-info {
     margin-left: 0;
+    font-size: 0.9em;
   }
 }
 
@@ -877,18 +902,18 @@ span.picture {
   text-align: center;
 }
 
-.row .pagination .active a {
+.pagination-wrapper .pagination .active a {
   background-color: #A349B0;
   border-color: rgba(62, 13, 84, 0.5);
 }
 
-.row .pagination .active a:hover {
+.pagination-wrapper .pagination .active a:hover {
   background-color: rgba(130, 12, 146, 0.31);
   border-color: rgba(62, 13, 84, 0.45);
   font-weight: 800;
 }
 
-.row .pagination > li > a {
+.pagination-wrapper .pagination > li > a {
   color: #d895f9;
   &:active {
     color: #A349B0;
@@ -903,13 +928,12 @@ span.picture {
   }
 }
 
-.row .pagination > li > a:hover {
+.pagination-wrapper .pagination > li > a:hover {
   background-color: rgba(163, 73, 176, 0.11);
   border-color: rgba(163, 73, 176, 0.42);
 }
 
 .pagination a, .previous_page, .current, .next_page {
-  padding: .75em 1em;
   margin: 0 .5em;
   border-radius: .15em;
   line-height: 20px;
@@ -942,19 +966,19 @@ span.picture {
   }
   /*iphone 5 portrait*/
   @media(min-width: 300px) and (max-width: 339px) {
-    margin-left: 19%;
+    margin-left: 12%;
   }
   /*galaxy s5 portrait*/
-  @media(min-width: 340px) and (max-width: 369px) {
-    margin-left: 20%;
+  @media(min-width: 340px) and (max-width: 379px) {
+    margin-left: 11%;
   }
   /*iphone 6 portrait*/
-  @media(min-width: 370px) and (max-width: 399px) {
-    margin-left: 28%;
+  @media(min-width: 380px) and (max-width: 399px) {
+    margin-left: 12%;
   }
   /* -- iphone 6plus -- Nexus 5x -- Nexus 6p -- */
   @media(min-width: 400px) and (max-width: 449px) {
-    margin-left: 13%;
+    margin-left: 12%;
   }
 }
 
@@ -989,20 +1013,45 @@ span.picture {
 }
 
 #layout-base .pagination-wrapper .pagination .disabled {
-  @media(min-width: 399px) {
+  @media(min-width: 449px) {
     display: inline;
   }
 }
 
 /* -------------------------- Static Pages ----------------------------- */
+.page-title span {
+  @media (max-width: 830px) {
+    display: block;
+  }
+  @media (min-width: 360px) and (max-width: 830px) {
+    font-size: 1.4rem;
+  }
+  @media (min-width: 314px) and (max-width: 359px) {
+    font-size: 1.3rem;
+  }
+  @media (min-width: 300px) and (max-width: 313px) {
+    font-size: 1.1rem;
+  }
+  @media (min-width: 275px) and (max-width: 299px) {
+    font-size: 0.8rem;
+  }
+}
+
 .hint {
   font-size: 1.2em;
   letter-spacing: .1em;
-  &:hover > .footer-stretch {
+  &:hover > .hint-stretch {
     transition: 3s;
     letter-spacing: 1.2em;
     margin-left: 1em;
     color: #438100;
+  }
+}
+
+.hint-stretch {
+    @media(max-width: 830px) {
+    display: block;
+    margin: 2em 0;
   }
 }
 
@@ -1013,9 +1062,13 @@ span.picture {
 
 .social-button {
   width: 32px;
-  margin: 0 1.6em;
+  margin: 0 1.6em 2em;
   opacity: 0.2;
   filter: alpha(opacity=20); /* For IE8 and earlier */
+  @media(max-width: 830px) {
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+  }
   &:hover {
     border-radius: 16px;
     opacity: .9;
@@ -1025,10 +1078,12 @@ span.picture {
   }
 }
 
-.social a:hover {
-  /*background-color: rgba(104, 202, 53, 0.99); */
-  transition: 1.5s;
+.social-links a:hover {
   text-decoration: none;
+}
+
+#web-icon {
+  width: 28px;
 }
 
 .troopers {
