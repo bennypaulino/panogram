@@ -101,6 +101,28 @@ p {
   }
 }
 
+/* ------------------------ Special FX -------------------------- */
+/*=== Animations start here  ===*/
+/*=== FADE IN  ===*/
+
+/*.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+  -webkit-animation: fadeIn 2s ease-in forwards;*/ /* Safari, Chrome and Opera > 12.1 */
+/*  -moz-animation: fadeIn 2s ease-in forwards;*/ /* Firefox < 16 */
+/*  -ms-animation: fadeIn 2s ease-in forwards;*/ /* Internet Explorer */
+/*  -o-animation: fadeIn 2s ease-in forwards;*/ /* Opera < 12.1 */
+/*  animation-iteration-count: 1;
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+}*/
+
 /* -------------------------- HEADER ---------------------------- */
 
 #logo {
@@ -578,6 +600,88 @@ aside {
   text-align: center;
 }
 
+/* users#edit form */
+.gravatar-aside .gravatar_edit {
+  margin-top: 2em;
+  @media (min-width: 992px) {
+    margin-left: 40%;
+    display: block;
+  }
+  span img {
+    float: none;
+    display: block;
+  }
+}
+
+/* users#new form (signup page) */
+#sign-up-title {
+  @media (min-width: 275px) and (max-width: 314px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 315px) and (max-width: 326px) {
+    font-size: 2.2rem;
+  }
+  @media (min-width: 327px) and (max-width: 339px) {
+    font-size: 2.3rem;
+  }
+  @media (min-width: 340px) and (max-width: 351px) {
+    font-size: 2.4rem;
+  }
+  @media (min-width: 352px) and (max-width: 363px) {
+    font-size: 2.5rem;
+  }
+  @media (min-width: 364px) and (max-width: 376px) {
+    font-size: 2.6rem;
+  }
+  @media (min-width: 377px) and (max-width: 389px) {
+    font-size: 2.7rem;
+  }
+  @media (min-width: 390px) and (max-width: 400px) {
+    font-size: 2.8rem;
+  }
+  @media (min-width: 401px) and (max-width: 499px) {
+    font-size: 2.9rem;
+  }
+  @media (min-width: 500px) and (max-width: 599px) {
+    font-size: 3.2rem;
+  }
+}
+
+#sign-up-stretch {
+  opacity: 0;
+  letter-spacing: 0.5em;
+  -webkit-animation: widemove 3s ease-in forwards; /* Chrome, Safari, Opera */
+  animation: widemove 3s ease-in forwards;
+  animation-iteration-count: 1;
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes widemove {
+    50% {letter-spacing: 1em;}
+    100% {letter-spacing: 1.5em;}
+    from {opacity: .1;}
+    to {opacity: 1;}
+  }
+  @keyframes widemove {
+    50% {letter-spacing: 1.5em;}
+    100% {letter-spacing: 1.5em;}
+    from {opacity: .1;}
+    to {opacity: 1;}
+  }
+}
+
+
+#hidden-ampersand {
+  display: none;
+  @media (max-width: 575px) {
+    display: inline;
+  }
+}
+
+#default-and {
+  @media (max-width: 575px) {
+    display: none;
+  }
+}
+
 /* ---------------------------- Users index ----------------------- */
 .users {
   list-style: none;
@@ -683,11 +787,6 @@ aside {
   margin-right: .8em;
 }
 
-/*.center-override .gravatar {
-  float: none;
-  margin-right: 1em;
-}*/
-
 .change-gravatar {
   font-family: 'Gruppo', cursive;
   font-size: 1.4em;
@@ -695,18 +794,6 @@ aside {
   &:hover {
     color: #B22A03;
     text-decoration: none;
-  }
-}
-
-.gravatar-aside .gravatar_edit {
-  margin-top: 2em;
-  @media (min-width: 992px) {
-    margin-left: 40%;
-    display: block;
-  }
-  span img {
-    float: none;
-    display: block;
   }
 }
 
@@ -1070,7 +1157,7 @@ span.picture {
 }
 
 /* -------------------------- Static Pages ----------------------------- */
-.page-title span {
+#about-panogram {
   @media (max-width: 830px) {
     display: block;
   }
