@@ -17,6 +17,17 @@ $link-color-hover: #50015B;
 
 body {
   padding-top: 4em;
+  width: 100%;
+  max-width: 100%;
+}
+
+#outer-wrapper {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#inner-wrapper {
+  width: 100%;
 }
 
 section {
@@ -35,9 +46,16 @@ textarea {
   }
 }
 
-/*aside {
-  background-color: rgba(110, 201, 13, 0.12);
-}*/
+@media(max-width: 499px) {
+  #inner-wrapper {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #layout-base {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+}
 
 /* --------------------------- typography --------------------------- */
 
@@ -78,24 +96,25 @@ p {
   font-family: 'Gruppo', cursive;
   letter-spacing: .3em;
   font-weight: 800;
+  @media(min-width: 275px) and (max-width: 399px) {
+    font-size: 2.5rem;
+  }
 }
 
 /* -------------------------- HEADER ---------------------------- */
+
 #logo {
   float: left;
-  margin-right: .7em;
-  margin-left: .5em;
-  font-size: 1.7em;
-  color: #fff;
-  letter-spacing: .8em;
-  padding-top: .4em;
+  font-size: 1.4em;
+  color: #d4f9ad;
+  letter-spacing: .2em;
   font-weight: bold;
   text-decoration: none;
   &:hover {
     color: $accent-color;
     text-decoration: none;
     transition: 3s;
-    letter-spacing: 1.4em;
+    letter-spacing: 0.5em;
   }
 }
 
@@ -103,7 +122,7 @@ p {
   font-family: 'Gruppo', cursive;
 }
 
-.navbar .container-fluid .navbar-right > li > a:hover {
+.navbar .container .navbar-right > li > a:hover {
   color: $accent-color;
 }
 
@@ -112,12 +131,92 @@ p {
   background-color: #bdf582;
 }
 
+#menu-collapse #nav-menu li a {
+  color: #d4f9ad;
+  &:active {
+    color: #6ec90d;
+  }
+/*  &:hover {
+    color: #202817;
+  } */
+}
+
+#navbar-container #menu-collapse #nav-menu .dropdown-menu li a:hover {
+  color: #202817;
+  background-color: #bdf582;
+}
+
+/* hamburger menu icon */ 
+#navigation .navbar-toggle .icon-bar {
+  background-color: #d4f9ad;
+}
+
+#menu-collapse .nav .dropdown .dropdown-menu {
+  background-color: #000;
+}
+
+.navbar-links {
+  letter-spacing: 0.4em;
+}
+
+@media(min-width: 768px) {
+  #logo: {
+    margin-right: .7em;
+    font-size: 1.7em;
+    color: #fff;
+    letter-spacing: .8em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  #outer-wrapper {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  #inner-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;  
+  }
+  #layout-base {
+    padding-left: 0px;
+    padding-right: 0px;  
+  }
+}
+
+@media(min-width: 780px) {
+  #logo:hover {
+    letter-spacing: 1.4em;
+  }
+}
+
+@media(min-width: 500px) and (max-width: 779px) {
+  #logo:hover {
+    letter-spacing: 1.2em;
+  }
+}
+
+@media(min-width: 400px) and (max-width: 499px) {
+  #logo:hover {
+    letter-spacing: 1.0em;
+  }
+}
+
+@media(min-width: 275px) and (max-width: 309px) {
+  #logo:hover {
+    letter-spacing: 0.3em;
+  }
+}
+
+@media(max-width: 499px) {
+  #layout-base .pano-feed {
+    font-size: 1.7rem;
+  }
+}
 
 /* --------------------------- FOOTER ------------------------------ */
 footer {
   margin-top: 3.5em;
   padding-top: .2em;
-  border-top: 1px solid $gray-medium-light;
+  /*border-top: 1px solid $gray-medium-light;*/
   color: #777;
   font-family: 'Gruppo', cursive;
   a {
@@ -127,7 +226,7 @@ footer {
       text-decoration: none;
     }
   }
-  small {
+  span {
     margin-left: 1em;
   }
   ul {
@@ -147,25 +246,52 @@ footer {
   letter-spacing: 1.2em;
   margin-left: 1em;
   color: $link-color-hover;
+  @media (min-width: 365px) and (max-width: 399px) {
+    letter-spacing: 1.0em;
+  }
+  @media(max-width: 364px) {
+    letter-spacing: 0.5em;
+  }
+}
+
+.footer span {
+  @media(max-width: 554px) {
+    display: none;
+  }
+}
+
+.footer-stretch {
+  @media(max-width: 554px) {
+    margin-left: 1em;
+  }
 }
 
 /* ------------------------ landing page --------------------------  */
 .jumbotron {
   padding: 10em 0;
   font-family: 'Gruppo', cursive;
-  h2 {
+  .sub-title {
     font-size: 1.7em;
     color: #fdffee;
+    @media(max-width: 499px) {
+      font-size: 1.8rem;
+    }
+    @media(max-width: 359px) {
+      font-size: 1.4rem;
+    }
+    /*iphone 6 portrait*/
+    @media (min-width: 360px) and (max-width: 399px) {
+      font-size: 1.5rem;
+    }
   }
 }
 
 .hero {
-  background: image-url('hero.jpg') no-repeat;
+  background: image-url('hero-1200px.jpg') no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /*height: 380px;*/
   box-shadow: 0px 4px 12px rgba(133,116,133,0.90);
   .frosty {
     background: rgba(0,0,0, 0.1);
@@ -181,15 +307,83 @@ footer {
 }
 
 .hero-title {
-  letter-spacing: 0.9em;
+  font-size: 4rem;
+  letter-spacing: 4rem;
+  @media (min-width: 800px) and (max-width: 999px) {
+    letter-spacing: 2rem;
+  }
+  @media (min-width: 500px) and (max-width: 799px) {
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+  }
+  @media (min-width: 400px) and (max-width: 499px) {
+    font-size: 2.6rem;
+    letter-spacing: 1.2rem;
+  }
   &:hover {
-    letter-spacing: 1.4em;
+    letter-spacing: 8rem;
     transition: 3s;
     color: #d4f9ad;
+    /* ipad landscape*/
+    @media (min-width: 1000px) and (max-width: 1199px) {
+      letter-spacing: 6.6rem;
+    }
+    /* Fire HDX 7 tablet landscape*/
+    @media (min-width: 800px) and (max-width: 999px) {
+      letter-spacing: 3.4rem;
+    }
+    /*ipad portrait*/
+    @media (min-width: 740px) and (max-width: 799px) {
+      letter-spacing: 3.6rem;
+    }
+    /*iphone 6plus landscape*/
+    @media (min-width: 700px) and (max-width: 739px) {
+      letter-spacing: 5.9rem;
+    }
+    /*iphone 6 landscape*/
+    @media (min-width: 660px) and (max-width: 699px) {
+      letter-spacing: 4.9rem;
+    }
+    /*galaxy s5 landscape*/
+    @media (min-width: 640px) and (max-width: 659px) {
+      letter-spacing: 4.5rem;
+    }
+    /* Fire HDX tablet portrait */
+    @media (min-width: 600px) and (max-width: 639px) {
+      letter-spacing: 4rem;
+    }
+    /* iphone 5 landscape */
+    @media (min-width: 500px) and (max-width: 599px) {
+      letter-spacing: 3.5rem;
+    }
+    /*iphone 6 plus portrait*/
+    @media (min-width: 400px) and (max-width: 499px) {
+      letter-spacing: 2.3rem;
+    }
+    /*iphone 6 portrait*/
+    @media (min-width: 375px) and (max-width: 399px) {
+      letter-spacing: 2.1rem;
+    }
+    /*galaxy s5 portrait*/
+    @media (min-width: 360px) and (max-width: 374px) {
+      letter-spacing: 1.9rem;
+    }
+    /*iphone 5 portrait*/
+    @media (min-width: 200px) and (max-width: 359px) {
+      letter-spacing: 1.4rem;
+    }
   } 
 }
 
-/* ----------------------------- forms -------------------------------  */
+/*iphone 5 & iphone 6 portrait*/
+@media (min-width: 200px) and (max-width: 399px) {
+  .hero-title {
+    font-size: 2.0rem;
+    letter-spacing: 1.0rem;
+  }
+}
+
+/* ----------------------------- forms ------------------------------- */  
 input, textarea, select, .uneditable-input {
   border-collapse: 1px solid #bbb;
   width: 100%;
@@ -237,6 +431,11 @@ label.control-label {
   font-size: 1.2em;
   font-weight: 800;
   letter-spacing: .2em;
+}
+
+.alert-dismissible .close {
+  font-size: 4rem;
+  line-height: 0.5;
 }
 
 .field_with_errors {
@@ -536,8 +735,8 @@ aside {
   }
   .content {
     display: block;
-    margin-left: 4em;
-    margin-top: 0.5em;
+    /*margin-left: 4em;*/
+    margin-top: 3em;
     margin-bottom: 1em;
     img {
       /*display: block;*/
@@ -573,6 +772,25 @@ aside {
   }
 }
 
+.microposts .micropost-info .timestamp {
+  @media (min-width: 261px) and (max-width: 348px) {
+    font-size: .7em;
+  }
+  @media (min-width: 349px) and (max-width: 399px) {
+    font-size: .8em;
+  }
+  @media (min-width: 400px) and (max-width: 499px) {
+    font-size: .9em;
+  }
+}
+
+@media(max-width: 499px) {
+  #layout-base .microposts .micropost-info {
+    margin-left: 0;
+    font-size: 0.9em;
+  }
+}
+
 .microposts .user a:hover {
   text-decoration: none;
 }
@@ -582,6 +800,7 @@ aside {
   font-weight: 800;
   letter-spacing: .4em;
   margin-top: 1.3em;
+  font-size: 2.3rem;
 }
 
 span.picture {
@@ -609,6 +828,13 @@ span.picture {
       text-decoration: none;
       color: $link-color-hover;
     }
+    &:active {
+      text-decoration: none;
+      color: rgba(80, 1, 91, 0.73);
+    }
+    &:focus {
+      text-decoration: none;
+    }
   }
   strong {
     display: block;
@@ -632,11 +858,18 @@ span.picture {
 
 .users.follow {
   padding: 0;
+  @media (max-width: 991px) {
+    margin-top: 1em;
+  }
 }
 
 .microposts .micropost-info {
+  margin-left: 33%;
   a {
     text-decoration: none;
+  }
+  @media (min-width: 500px) and (max-width: 643px) {
+  margin-left: 0;
   }
 }
 
@@ -653,6 +886,20 @@ span.picture {
     margin-top: 4em;
   }
 }
+
+.hidden-title {
+  display: none;
+  @media (max-width: 991px) {
+    display: block;
+  }
+}
+
+@media (max-width: 991px) {
+  .default-title {
+    display: none;
+  }
+}
+
 
 /* ------------------------ micropost admirers --------------------- */
 .micropost-admirers {
@@ -679,18 +926,18 @@ span.picture {
   text-align: center;
 }
 
-.row .pagination .active a {
-  background-color: #A349B0;
+.pagination-wrapper .pagination .active a {
+  background-color: #823c8c;
   border-color: rgba(62, 13, 84, 0.5);
 }
 
-.row .pagination .active a:hover {
+.pagination-wrapper .pagination .active a:hover {
   background-color: rgba(130, 12, 146, 0.31);
   border-color: rgba(62, 13, 84, 0.45);
   font-weight: 800;
 }
 
-.row .pagination > li > a {
+.pagination-wrapper .pagination > li > a {
   color: #d895f9;
   &:active {
     color: #A349B0;
@@ -705,15 +952,12 @@ span.picture {
   }
 }
 
-.row .pagination > li > a:hover {
+.pagination-wrapper .pagination > li > a:hover {
   background-color: rgba(163, 73, 176, 0.11);
   border-color: rgba(163, 73, 176, 0.42);
-/*  z-index: 2;
-  color: #750d92;*/
 }
 
 .pagination a, .previous_page, .current, .next_page {
-  padding: .75em 1em;
   margin: 0 .5em;
   border-radius: .15em;
   line-height: 20px;
@@ -734,28 +978,109 @@ span.picture {
   display: none;
 } 
 
-/*.pagination .li a:hover {
-  background-color: #e4e4e4;
-  border-color: #b3b1b1;
-  font-weight: bolder;
-}*/
-
 .pagination a:hover {
   color: #28C6D1;
   background: #d6d6d6;
   transition: 1s;
 }
 
+.pagination-wrapper {
+  @media(max-width: 499px) {
+    text-align: center;
+  }
+  /*iphone 5 portrait*/
+  @media(min-width: 300px) and (max-width: 339px) {
+    margin-left: 12%;
+  }
+  /*galaxy s5 portrait*/
+  @media(min-width: 340px) and (max-width: 379px) {
+    margin-left: 11%;
+  }
+  /*iphone 6 portrait*/
+  @media(min-width: 380px) and (max-width: 399px) {
+    margin-left: 12%;
+  }
+  /* -- iphone 6plus -- Nexus 5x -- Nexus 6p -- */
+  @media(min-width: 400px) and (max-width: 449px) {
+    margin-left: 12%;
+  }
+}
+
+.pagination-wrapper .pagination {
+  @media(max-width: 499px) {
+    display: inline-block;
+  }
+}
+
+.pagination-wrapper .pagination li {
+  @media(max-width: 499px) {
+    display: none;
+  }
+}
+
+#layout-base .pagination-wrapper .pagination li.prev.previous_page {
+  @media(max-width: 499px) {
+    display: inline;
+  }
+}
+
+#layout-base .pagination-wrapper .pagination .next_page {
+  @media(max-width: 499px) {
+    display: inline;
+  }
+}
+
+#layout-base .pagination-wrapper .pagination .active {
+  @media(max-width: 499px) {
+    display: inline;
+  }
+}
+
+#layout-base .pagination-wrapper .pagination .disabled {
+  @media(min-width: 449px) {
+    display: inline;
+  }
+}
+
 /* -------------------------- Static Pages ----------------------------- */
+.page-title span {
+  @media (max-width: 830px) {
+    display: block;
+  }
+  @media (min-width: 360px) and (max-width: 830px) {
+    font-size: 1.4rem;
+  }
+  @media (min-width: 314px) and (max-width: 359px) {
+    font-size: 1.3rem;
+  }
+  @media (min-width: 300px) and (max-width: 313px) {
+    font-size: 1.1rem;
+  }
+  @media (min-width: 275px) and (max-width: 299px) {
+    font-size: 0.8rem;
+  }
+}
+
 .hint {
   font-size: 1.2em;
   letter-spacing: .1em;
-  &:hover > .footer-stretch {
+  &:hover > .hint-stretch {
     transition: 3s;
     letter-spacing: 1.2em;
     margin-left: 1em;
     color: #438100;
   }
+}
+
+.hint-stretch {
+    @media(max-width: 830px) {
+    display: block;
+    margin: 2em 0;
+  }
+}
+
+.pano-portrait {
+  margin: 1.2em 0 2em;
 }
 
 .p-legible {
@@ -765,9 +1090,13 @@ span.picture {
 
 .social-button {
   width: 32px;
-  margin: 0 1.6em;
+  margin: 0 1.6em 2em;
   opacity: 0.2;
   filter: alpha(opacity=20); /* For IE8 and earlier */
+  @media(max-width: 830px) {
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+  }
   &:hover {
     border-radius: 16px;
     opacity: .9;
@@ -777,10 +1106,12 @@ span.picture {
   }
 }
 
-.social a:hover {
-  /*background-color: rgba(104, 202, 53, 0.99); */
-  transition: 1.5s;
+.social-links a:hover {
   text-decoration: none;
+}
+
+#web-icon {
+  width: 28px;
 }
 
 .troopers {

@@ -1,5 +1,5 @@
 <% provide(:title, @user.username) %>
-<div class="row">
+<div class="col-xs-12" id="layout-base">
   <aside class="col-xs-12 col-md-4">
     <section class="user_info" id="sidebar_user_show">
       <h1 class="primary-font" id="user_info_show_name">
@@ -31,9 +31,14 @@
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-      <div class="center primary-font">
-        <%= will_paginate @microposts, previous_label: "<", 
-                                   next_label: ">" %>
+      <div class="pagination-wrapper center">
+        <div class="pagination primary-font">
+          <%= will_paginate @microposts, previous_label: "<", 
+                                         next_label: ">",
+                                         inner_window: 1, 
+                                         outer_window: 0,
+                                         :container => false %>
+        </div>
       </div>
     <% end %>
   </div>

@@ -1,18 +1,33 @@
 <% provide(:title, "All Panogrammers") %>
 <h1 class="page-title center">All Panogrammers</h1>
 
-<div class="col-xs-4 col-xs-offset-4 row">
+<div class="container" id="inner-wrapper">
+  <div class="col-xs-12" id="layout-base">
 
-  <div class="center primary-font">
-    <%= will_paginate @users, previous_label: "<", next_label: ">" %>
-  </div>
+    <div class="pagination-wrapper center">
+      <div class="pagination primary-font">
+        <%= will_paginate @users, previous_label: "<", 
+                                  next_label: ">",
+                                  inner_window: 1, 
+                                  outer_window: 0,
+                                  :container => false %>
+      </div>
+    </div> <!-- end of pagination -->
+  
 
-  <ul class="users">
-    <%= render @users %>
-    <!-- Rails infers that @users is a list of User objects; Rails automatically iterates through them and renders each one with the _user.html.erb partial (inferring the name of the partial from the name of the class). -->
-  </ul>
+    <ul class="users">
+      <%= render @users %>
+      <!-- Rails infers that @users is a list of User objects; Rails automatically iterates through them and renders each one with the _user.html.erb partial (inferring the name of the partial from the name of the class). -->
+    </ul>
 
-  <div class="center primary-font">
-    <%= will_paginate @users, previous_label: "<", next_label: ">" %>
+    <div class="pagination-wrapper center">
+      <div class="pagination primary-font">
+        <%= will_paginate @users, previous_label: "<", 
+                                  next_label: ">",
+                                  inner_window: 1, 
+                                  outer_window: 0,
+                                  :container => false %>
+      </div>
+    </div>
   </div>
 </div>
