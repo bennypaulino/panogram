@@ -12,7 +12,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.username)
-    assert_select 'h1', text: @user.name
+    assert_select 'h1', text: @user.username
     assert_select 'h1>img.gravatar'
     assert_select 'div.stats'
     assert_match @user.following.count.to_s, response.body

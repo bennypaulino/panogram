@@ -1,11 +1,33 @@
 <% provide(:title, "Panogram") %>
-<div class="center jumbotron hero">
-  <div class="frosty text-center">
-    <h1 class="hero-title">Panogram</h1>
-    <h2>
-      Because the world isn't always square.
-    </h2>
-    <br>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-submit" %>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3 class="pano-feed">Your Pano Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="center jumbotron hero">
+    <div class="frosty text-center">
+      <h1 class="hero-title">Panogram</h1>
+      <h2>
+        Because the world isn't always square.
+      </h2>
+      <br>
+      <%= link_to "Sign up now!", signup_path, 
+                                  class: "btn btn-lg btn-submit" %>
+    </div>
+  </div>
+<% end %>
