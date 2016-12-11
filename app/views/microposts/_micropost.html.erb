@@ -12,7 +12,7 @@
     <%= micropost.content %>
   </span>
 
-  <div class="micropost-info col-xs-offset-4">
+  <div class="micropost-info">
     <%= render 'microposts/like_form', micropost: micropost %> 
 
     <a href="<%= admirers_micropost_path(micropost) %>">
