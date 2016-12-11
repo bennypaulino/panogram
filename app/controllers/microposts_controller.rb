@@ -12,7 +12,7 @@ class MicropostsController < ApplicationController
         redirect_to root_path # request.referrer || root_url
       end
     else
-      @feed_items = []
+      @feed_items = current_user.feed.paginate(page: params[:page]) #[]
       render 'welcome/index'
     end
   end
@@ -35,7 +35,7 @@ class MicropostsController < ApplicationController
         redirect_to root_url
       end
     else
-      @feed_items = [] #current_user.feed.paginate(page: params[:page])
+      @feed_items = []
       render 'static_pages/home'
     end
   end

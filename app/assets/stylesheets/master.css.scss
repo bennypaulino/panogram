@@ -828,6 +828,13 @@ span.picture {
       text-decoration: none;
       color: $link-color-hover;
     }
+    &:active {
+      text-decoration: none;
+      color: rgba(80, 1, 91, 0.73);
+    }
+    &:focus {
+      text-decoration: none;
+    }
   }
   strong {
     display: block;
@@ -851,6 +858,9 @@ span.picture {
 
 .users.follow {
   padding: 0;
+  @media (max-width: 991px) {
+    margin-top: 1em;
+  }
 }
 
 .microposts .micropost-info {
@@ -876,6 +886,20 @@ span.picture {
     margin-top: 4em;
   }
 }
+
+.hidden-title {
+  display: none;
+  @media (max-width: 991px) {
+    display: block;
+  }
+}
+
+@media (max-width: 991px) {
+  .default-title {
+    display: none;
+  }
+}
+
 
 /* ------------------------ micropost admirers --------------------- */
 .micropost-admirers {
@@ -903,7 +927,7 @@ span.picture {
 }
 
 .pagination-wrapper .pagination .active a {
-  background-color: #A349B0;
+  background-color: #823c8c;
   border-color: rgba(62, 13, 84, 0.5);
 }
 
@@ -1053,6 +1077,10 @@ span.picture {
     display: block;
     margin: 2em 0;
   }
+}
+
+.pano-portrait {
+  margin: 1.2em 0 2em;
 }
 
 .p-legible {
