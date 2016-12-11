@@ -528,7 +528,7 @@ label.control-label {
   &:hover {
     color: #fff;
     background-color: #8CDC35;
-    transition: 0.8s;
+    transition: 1.8s;
     font-weight: 800;
     letter-spacing: .6em;
     box-shadow: 0 3px 6px 0 #2a671e;
@@ -683,10 +683,10 @@ aside {
   margin-right: .8em;
 }
 
-.center-override .gravatar {
+/*.center-override .gravatar {
   float: none;
   margin-right: 1em;
-}
+}*/
 
 .change-gravatar {
   font-family: 'Gruppo', cursive;
@@ -698,8 +698,35 @@ aside {
   }
 }
 
-.gravatar_edit {
-  margin-top: 1em;
+.gravatar-aside .gravatar_edit {
+  margin-top: 2em;
+  @media (min-width: 992px) {
+    margin-left: 40%;
+    display: block;
+  }
+  span img {
+    float: none;
+    display: block;
+  }
+}
+
+.gravatar-aside {
+  display: block;
+  @media (min-width: 200px) and (max-width: 499px) {
+    margin-left: 33.333%;
+  }
+  @media (min-width: 500px) and (max-width: 599px) {
+    margin-left: 40%;
+  }
+  @media (min-width: 600px) and (max-width: 699px) {
+    margin-left: 42%;
+  }
+  @media (min-width: 700px) and (max-width: 899px) {
+    margin-left: 43%;
+  }
+  @media (min-width: 900px) and (max-width: 992px) {
+    margin-left: 44%;
+  }
 }
 
 .micropost_form {
