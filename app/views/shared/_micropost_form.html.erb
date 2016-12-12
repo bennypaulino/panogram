@@ -1,9 +1,11 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f|%>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose a new panogram..." %>
+    <%= f.text_area :content, 
+                     maxlength: 140, 
+                     placeholder: "Compose a new panogram..." %>
   </div>
-
+  <span class="countdown"></span>
   <span class="picture">
     <%= f.file_field :picture, 
                       class: "filestyle",
@@ -25,5 +27,32 @@
     if (size_in_megabytes > 5) {
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
+  });
+</script>
+
+<script type="text/javascript">
+  function updateCountdown() {
+
+    var $countdown = $('.countdown');
+
+    // 140 is the max message length
+    var remaining = 140 - $('#micropost_content').val().length;
+
+    $countdown.text(remaining + ' characters remaining');
+
+    var color = 'grey';
+    if (remaining < 31) { color = 'black'; }
+    if (remaining < 21) { color = '#ff7600'; } //orange
+    if (remaining < 11) { color = '#de0000'; } //red
+    $countdown.css( { color: color} );
+  }
+
+  $(document).ready(function($) {
+      updateCountdown();
+      $micropost_content = $('#micropost_content');
+
+      $micropost_content.change(updateCountdown);
+      $micropost_content.keyup(updateCountdown);
+      $micropost_content.keydown(updateCountdown);
   });
 </script>
