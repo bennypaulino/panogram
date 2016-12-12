@@ -17,7 +17,6 @@
                       accept: 'image/jpeg,image/jpg/,image/gif,image/png' %>
   </span>
   <br>
-
   <%= f.submit "Post", class: "btn btn-submit" %>
 <% end %>
 
@@ -32,21 +31,19 @@
 
 <script type="text/javascript">
   function pluralize(count, word){
-    if (count == 1 || count == -1){
+    if (count == 1){
       return String(count) + ' ' + word;
     }else{
       return String(count) + ' ' + word + 's';
     }
   }
-  
-  function updateCountdown() {
 
+  function updateCountdown() {
     var $countdown = $('.countdown');
 
     // 140 is the max message length
     var remaining = 140 - $('#micropost_content').val().length;
 
-    //$countdown.text(remaining + ' characters remaining');
     $countdown.text(pluralize(remaining,'character') + ' remaining');
 
     var color = 'grey';
