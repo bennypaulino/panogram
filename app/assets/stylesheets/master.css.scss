@@ -102,6 +102,7 @@ p {
 }
 
 /* ------------------------ Special FX -------------------------- */
+
 /*=== Animations start here  ===*/
 /*=== FADE IN  ===*/
 
@@ -488,6 +489,7 @@ label.control-label {
   }
 }
 
+/* ~~~~~~~~~~~~~~~~~ Log In Form ~~~~~~~~~~~~~~~~~ */
 .checkbox {
   margin-top: -0.8em;
   margin-bottom: -0.8em;
@@ -509,6 +511,26 @@ label.control-label {
     color: $link-color-hover;
     font-weight: 800;
     text-decoration: none;
+  }
+}
+
+.horizontal-tip {
+  text-decoration: none;
+  color: $link-color;
+  @media (min-width: 586px) and (max-width: 767px) {
+    display: block;
+  }
+  @media (min-width: 1045px) {
+    display: block;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $link-color-hover;
+    @media (min-width: 387px){
+      margin-left: .5em;
+      letter-spacing: .5em;
+      transition: 3s;
+    } 
   }
 }
 
