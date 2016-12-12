@@ -614,12 +614,16 @@ aside {
   border-bottom-right-radius: 5px;
 }
 
+/* ~~~~~~~~~~~~~~~~~ Crop Image Form ~~~~~~~~~~~~~~~~~ */
 .jcrop-centered {
   display: inline-block;
 }
 
 .crop-image-wrapper {
   text-align: center;
+  .form-group .btn-submit {
+    width: 17em;
+  }
 }
 
 /* users#edit form */
@@ -670,14 +674,42 @@ aside {
 }
 
 #sign-up-stretch {
+  @media (min-width: 705px) {
+    display: block;
+  }
   opacity: 0;
   letter-spacing: 0.5em;
-  -webkit-animation: widemove 3s ease-in forwards; /* Chrome, Safari, Opera */
-  animation: widemove 3s ease-in forwards;
+  -webkit-animation: widemove 4s ease-in forwards; /* Chrome, Safari, Opera > 12.1 */
+  -moz-animation: widemove 4s ease-in forwards; /* Firefox < 16 */
+  -ms-animation: widemove 4s ease-in forwards; /* Internet Explorer */
+  -o-animation: widemove 4s ease-in forwards; /* Opera < 12.1 */
+  animation: widemove 4s ease-in forwards;
   animation-iteration-count: 1;
+
   /* Chrome, Safari, Opera */
   @-webkit-keyframes widemove {
     50% {letter-spacing: 1em;}
+    100% {letter-spacing: 1.5em;}
+    from {opacity: .1;}
+    to {opacity: 1;}
+  }
+  /* Firefox < 16 */
+  @-moz-keyframes widemove {
+    50% {letter-spacing: 1.5em;}
+    100% {letter-spacing: 1.5em;}
+    from {opacity: .1;}
+    to {opacity: 1;}
+  }
+  /* Internet Explorer */
+  @-ms-keyframes widemove {
+    50% {letter-spacing: 1.5em;}
+    100% {letter-spacing: 1.5em;}
+    from {opacity: .1;}
+    to {opacity: 1;}
+  }
+  /* Opera < 12.1 */
+  @-o-keyframes widemove {
+    50% {letter-spacing: 1.5em;}
     100% {letter-spacing: 1.5em;}
     from {opacity: .1;}
     to {opacity: 1;}
