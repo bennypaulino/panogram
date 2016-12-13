@@ -57,6 +57,14 @@ textarea {
   }
 }
 
+.link-default {
+  color: $link-color;
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: none;
+  }
+}
+
 /* --------------------------- typography --------------------------- */
 
 .primary-font {
@@ -159,9 +167,6 @@ p {
   &:active {
     color: #6ec90d;
   }
-/*  &:hover {
-    color: #202817;
-  } */
 }
 
 #navbar-container #menu-collapse #nav-menu .dropdown-menu li a:hover {
