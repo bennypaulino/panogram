@@ -2,17 +2,19 @@
 <% provide( :button_text, 'Save changes' ) %>
 <% provide( :form_url, user_path(@user) ) %>
 
-<h1 class="center page-title">Update your profile</h1>
-
-<div class="row">
-  <div class="form-group col-md-6 col-md-offset-3">
-    <br>
-    <%= render 'form' %>
-
-    <div class="gravatar_edit center">
-      <span class="center-override"><%= gravatar_for @user %></span>
-      <a class="change-gravatar" href="http://gravatar.com/emails" target="_blank" rel="noopener noreferrer">change</a>
-      <!-- Minimize any security risks when opening a new tab/window by using rel="noopener noreferrer" -->
+<div class="container" id="inner-wrapper">
+  <div class="col-xs-12" id="layout-base">
+    <h1 class="center page-title">Update Your Profile</h1>
+    <aside class="col-md-2 gravatar-aside">
+      <div class="gravatar_edit">
+        <span class="text-center"><%= gravatar_for @user %></span>
+        <a class="change-gravatar" href="http://gravatar.com/emails" target="_blank" rel="noopener noreferrer">change</a>
+        <!-- Minimize any security risks when opening a new tab/window by using rel="noopener noreferrer" -->
+      </div>
+    </aside>
+    <div class="form-group col-md-6 col-xs-12 col-sm-10 col-sm-offset-1">
+      <br>
+      <%= render 'form' %>
     </div>
   </div>
 </div>

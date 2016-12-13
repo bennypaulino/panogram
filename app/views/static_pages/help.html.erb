@@ -1,6 +1,37 @@
 <% provide(:title, "Panogram Help") %>
-<h1 class="page-title center">Panogram Help</h1>
-<br>
-<p class="secondary-font center">Move along, nothing to see here just yet.
-</p>
-<%= image_tag 'Move_along_cropped.jpg', class: 'img-responsive center-block troopers' %>
+<div class="container" id="inner-wrapper">
+  <h1 class="page-title center">Panogram Help</h1>
+  <br>
+<!--   <div class="col-xs-8 col-xs-offset-2"> -->
+    <h2 class="primary-font col-xs-10 col-xs-offset-1">Best viewing experience</h2>
+    <p class="secondary-font col-xs-8 col-xs-offset-2">
+      The sharing of panoramic images was the inspiration for creating this website. Panoramic images lend themselves to viewing in landscape, rather than portrait format; if you're on a mobile device, you'll get the best experience viewing them by holding your device horizontally.
+    </p>
+    <h2 class="primary-font col-xs-10 col-xs-offset-1">Image Uploading</h2>
+    <p class="secondary-font col-xs-8 col-xs-offset-2">
+      Images will take substantially less time to upload and manage if you limit the file-size to less than 5MB.
+    </p>
+    <h2 class="primary-font col-xs-10 col-xs-offset-1">Image Cropping</h2>
+    <p class="secondary-font col-xs-8 col-xs-offset-2">
+      Panoramic images have had a long and varied 
+      <%= link_to "history", 
+                  "https://en.wikipedia.org/wiki/Panoramic_photography",
+                   target: "_blank",
+                   class: 'link-default' %>. 
+      After submitting an image, you'll find that the aspect ratio for the crop-box is 6:17, which happens to be the same as the venerable Linhof and Fujifilm cameras 
+      (<%= link_to "among others", 
+                   "http://imagesandcameras.com/panoramic-cameras",
+                    target: "_blank",
+                    class: 'link-default' %>).
+    </p>
+    <p class="secondary-font col-xs-8 col-xs-offset-2">
+      The crop-box is adjustable, and you are certainly not limited to accepting the default crop. Feel free to experiment and share the result!
+    </p>
+    <br>
+  <!-- </div> -->
+  
+
+  <!-- <p class="secondary-font center">Move along, nothing to see here just yet.
+  </p> -->
+  <%#= image_tag 'Move_along_cropped.jpg', class: 'img-responsive center-block troopers' %>
+</div>
