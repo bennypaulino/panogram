@@ -158,4 +158,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not dude.liking?(micropost)
     assert micropost.reload.id > 0
   end
+
+  test "associated comments should be destroyed" do
+    @user.save
+    @user.comments.create!(body: "Super offensive post")
+    assert_difference 'Comment.count', -1 do
+      @user.destroy
+    end
+  end
 end

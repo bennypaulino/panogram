@@ -1,11 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  body: MyText
+question:
+  body: "How many programmers does it take to change a light bulb?"
   commentable_id: 1
-  commentable_type: MyString
+  commentable_type: "Micropost"
+  created_at: <%= 15.minutes.ago %>
 
-two:
-  body: MyText
-  commentable_id: 1
-  commentable_type: MyString
+answer:
+  body: "None, that's a hardware problem"
+  commentable_id: 2
+  commentable_type: "Micropost"
+  created_at: <%= 5.minutes.ago %>
+
+most_recent:
+  body: "Real programmers count from 0."
+  commentable_id: 3
+  commentable_type: "Micropost"
+  created_at: <%= Time.zone.now %>

@@ -26,6 +26,11 @@ Rails.application.routes.draw do
     member do
       get :admirers
     end
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
   end
 
   resources :account_activations, only: [:edit]
@@ -33,6 +38,7 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :update, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
+  resources :comments, except: [:index, :show]
 
 
 
