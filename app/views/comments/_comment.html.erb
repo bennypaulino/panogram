@@ -5,7 +5,7 @@
     Posted <%#= time_ago_in_words(comment.created_at) %> ago.
     <%#= link_to "delete", comment, method: :delete %>
    </span> -->
-    <span class="glyphicon glyphicon-comment reply-toggle" data-toggle="tooltip" data-placement="top" data-animation="fade" title="Reply to this comment"></span>
+    <span class="glyphicon glyphicon-comment reply-toggle" id="reply-toggle-<%= comment.id %>" data-toggle="tooltip" data-placement="top" data-animation="fade" title="Reply to this comment"></span>
   </p>
   <div class="hidden-reply-to-comment-form" id="hidden-reply-to-comment-form-<%= comment.id %>">
     <%= render partial: 'shared/comment_form', 
@@ -13,7 +13,7 @@
   </div>
 
   <script>
-    $(".reply-toggle").click(function(){
+    $("#reply-toggle-<%= comment.id %>").click(function(){
         $("#hidden-reply-to-comment-form-<%= comment.id %>").toggle();
     });
   </script>
