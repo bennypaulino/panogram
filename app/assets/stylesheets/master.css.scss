@@ -65,6 +65,16 @@ textarea {
   }
 }
 
+.tooltip.fade{
+  /* Fade in tooltip - takes 2 seconds to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 2s;
+  &:hover {
+    opacity: 1
+  }
+}
+
+
 /* --------------------------- typography --------------------------- */
 
 .primary-font {
@@ -494,6 +504,29 @@ label.control-label {
   }
 }
 
+/* ~~~~~~~~~~~~~~~~~ Comment Form ~~~~~~~~~~~~~~~~~ */
+.comment-form-toggle:hover {
+  transition: 2s;
+  color: rgba(110, 201, 13, 0.65);
+  cursor: pointer;
+}
+
+.hidden-comment-form {
+  display: none;
+  margin-top: 0.7em;
+}
+
+.hidden-reply-to-comment-form {
+  display: none;
+}
+
+.leave-comment {
+  color: #bfbfbf;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 /* ~~~~~~~~~~~~~~~~~ Log In Form ~~~~~~~~~~~~~~~~~ */
 .checkbox {
   margin-top: -0.8em;
@@ -600,9 +633,9 @@ aside {
 }
 
 .countdown {
-  display: inline;
+  display: block;
   margin: 0 auto 0.8em;
-  float: right;
+  color: grey;
 }
 
 .btn-choose {
@@ -732,7 +765,6 @@ aside {
     to {opacity: 1;}
   }
 }
-
 
 #hidden-ampersand {
   display: none;
@@ -1051,12 +1083,37 @@ span.picture {
 }
 
 .microposts .micropost-info {
-  margin-left: 33%;
+  /*margin-left: 33%;*/
   a {
     text-decoration: none;
   }
   @media (min-width: 500px) and (max-width: 643px) {
   margin-left: 0;
+  }
+}
+
+/*  --------------------  comments ---------------------- */
+.hidden-comments {
+  display: none;
+  margin-top: 0.7em;
+  .well {
+    margin-top: 0.8em;
+    margin-bottom: 0.7em;
+  }
+}
+
+.comments-toggle:hover {
+  cursor: pointer;
+  color: $link-color-hover;
+  transition: 2s;
+}
+
+.reply-toggle {
+  float: right;
+  color: rgb(212, 249, 173);
+  &:hover {
+    transition: 2s;
+    color: rgba(110, 201, 13, 0.65);
   }
 }
 

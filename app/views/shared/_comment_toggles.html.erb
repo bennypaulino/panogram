@@ -1,0 +1,28 @@
+<% if micropost.comments.empty? %>
+
+  <span class="comment-form-toggle">
+    - comment <span class="glyphicon glyphicon-comment"></span>
+  </span>
+
+  <script>
+    $(".comment-form-toggle").click(function(){
+      $("#hidden-comment-form-<%= micropost.id %>").toggle();
+    });
+  </script>
+
+<% else %>
+  <span id="comments_<%= micropost.id %>" class="comments-toggle">
+    - <%= pluralize(micropost.comments.count, "comment") %> -
+  </span>
+
+  <script>
+    $(document).ready(function(){
+      $("#comments_<%= micropost.id %>").click(function(){
+          $("#hidden-comments-<%= micropost.id %>").toggle();
+      });
+      $(".leave-comment").click(function(){
+        $("#hidden-comment-form-<%= micropost.id %>").toggle();
+      });
+    });
+  </script>
+<% end %>

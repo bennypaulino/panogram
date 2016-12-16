@@ -1,0 +1,16 @@
+// Update the comments for a micropost
+$("#hidden-comments-<%= @micropost_id %>").html("<%= j render(:partial => 'comments/comment', locals: {commentable: Micropost.find_by_id(@micropost_id)} ) %>");
+// $().reset
+
+// $('some_element').replaceWith('<%#= j render 'some/element_template' %>');
+
+
+// Look to the relationships JS and model it after that instead
+
+// Look at the view for where a comment will end up and figure out
+// what the selector is going to be
+
+// Re: pagination
+// append to the end of the list
+// IF PAGINATING...........
+// re-render the entire comments list for that particular micropost

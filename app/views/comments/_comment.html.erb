@@ -1,0 +1,26 @@
+<% commentable.comments.each do |comment| %>
+  <p id="comment_<%= comment.id %>" class="well">
+    <%= comment.body %>
+    <!-- <span class="timestamp">
+    Posted <%#= time_ago_in_words(comment.created_at) %> ago.
+    <%#= link_to "delete", comment, method: :delete %>
+   </span> -->
+    <span class="glyphicon glyphicon-comment reply-toggle" data-toggle="tooltip" data-placement="top" data-animation="fade" title="Reply to this comment"></span>
+  </p>
+  <div class="hidden-reply-to-comment-form" id="hidden-reply-to-comment-form-<%= comment.id %>">
+    <%= render partial: 'shared/comment_form', 
+                 locals: { commentable: comment } %>
+  </div>
+
+  <script>
+    $(".reply-toggle").click(function(){
+        $("#hidden-reply-to-comment-form-<%= comment.id %>").toggle();
+    });
+  </script>
+<% end %>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    $(document.body).tooltip({ selector: "[title]" });
+  })
+</script>

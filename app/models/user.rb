@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, dependent: :destroy, as: :commentable
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :micropost,
             dependent: :destroy
-  # dependent: :destroy prevents userless microposts from being stranded in the
-  # database when admins choose to remove users from the system
+  # dependent: :destroy prevents userless microposts from being stranded
+  # in the database when admins choose to remove users from the system
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -42,12 +42,12 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
-  # Random token used in persistent cookies, accnt activ., & psswrd reset links.
+  # Random token for persistent cookies, accnt activ., & psswrd reset links
   def self.new_token
     SecureRandom.urlsafe_base64
   end
 
-  # Links remember token w/user & saves matching remember digest to the database
+  # Links remember token w/user & saves matching remember digest to database
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = User.new_token

@@ -1,0 +1,15 @@
+<%= form_for(commentable.comments.build, remote: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="character-counter">
+    <div class="field"> 
+      <%= f.text_area :body, 
+                       maxlength: 140, 
+                       placeholder: "Create a message..." %>
+      <%= f.hidden_field :commentable_id %>
+      <%= f.hidden_field :commentable_type %>
+    </div>
+    <span class="countdown text-right">140 characters remaining</span>
+  </div>
+  <br>
+  <%= f.submit "post comment", class: "btn btn-submit" %>
+<% end %>

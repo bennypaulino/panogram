@@ -16,13 +16,13 @@ class CommentTest < ActiveSupport::TestCase
     assert_not @comment.valid?
   end
 
-  test "comment body should be at most 220 characters" do
-    @comment.body = "b" * 221
+  test "comment body should be at most 140 characters" do
+    @comment.body = "b" * 141
     assert_not @comment.valid?
   end
 
-  test "order should be oldest comment first" do
-    assert_equal comments(:question), Comment.first
-    assert_equal comments(:most_recent), Comment.last
+  test "order should be newest comment first" do
+    assert_equal comments(:question), Comment.last
+    assert_equal comments(:most_recent), Comment.first
   end
 end
