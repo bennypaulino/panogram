@@ -37,7 +37,7 @@
     </div>
 
     <div class="hidden-comments" id="hidden-comments-<%= micropost.id %>">
-      <span class="comment-form-toggle leave-comment">
+      <span class="comment-form-toggle leave-comment" id="leave-comment-<%= micropost.id %>">
         Leave a comment...
       <span class="glyphicon glyphicon-comment"></span></span>
       <%= render partial: "comments/comment",
