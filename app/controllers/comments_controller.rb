@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       # provide a handle for the comments view
       @micropost_id = find_micropost_id(@comment)
+      @micropost = find_micropost(@comment)
       respond_to do |format|
         format.html { redirect_to root_url }
         format.js
@@ -27,6 +28,15 @@ class CommentsController < ApplicationController
   def find_micropost_id(comment)
     return comment.commentable_id if comment.commentable_type == "Micropost"
     find_micropost_id(Comment.find_by_id(comment.commentable_id))
+  end
+
+  def find_micropost(comment)
+    if comment.commentable_type == "Micropost"
+      return @micropost = Micropost.find_by_id(comment.commentable_id)
+    else
+      n = find_micropost_id(comment)
+      return @micropost = Micropost.find_by_id(n)
+    end
   end
 
   def comment_params

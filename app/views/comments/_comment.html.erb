@@ -11,6 +11,12 @@
     <%= render partial: 'shared/comment_form', 
                  locals: { commentable: comment } %>
   </div>
+<!--
+  <ul>
+      <%#= render partial: 'comments/comment',
+                 locals: { commentable: comment },
+                 collection: comment.comments %>
+  </ul> -->
 
   <script>
     $("#reply-toggle-<%= comment.id %>").click(function(){

@@ -7,6 +7,11 @@ $("#hidden-comments-<%= @micropost_id %>").css("display", "block");
 // clear the text that was entered into the form
 $("#comment_text_field_<%= @micropost_id %>").val("")
 
+//Replace the comments counter
+$("#comments_<%= @micropost_id %>").html("- <%= pluralize(@micropost.comments.count, 'comment') %> -");
+
+
+
 // $().reset
 
 // $('some_element').replaceWith('<%#= j render 'some/element_template' %>');
