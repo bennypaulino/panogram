@@ -1,9 +1,10 @@
 <%= form_for(commentable.comments.build, remote: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="character-counter">
-    <div class="field"> 
-      <%= f.text_area :body, 
-                       maxlength: 140, 
+    <div class="field">
+      <%= f.text_area :body,
+                       maxlength: 140,
+                       id: "comment_text_field_#{commentable.id}",
                        placeholder: "Create a message..." %>
       <%= f.hidden_field :commentable_id %>
       <%= f.hidden_field :commentable_type %>

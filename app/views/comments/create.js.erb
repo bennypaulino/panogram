@@ -4,6 +4,9 @@ $("#hidden-comments-<%= @micropost_id %>").html("<%= j render(:partial => 'comme
 // reveal the hidden-comments
 $("#hidden-comments-<%= @micropost_id %>").css("display", "block");
 
+// clear the text that was entered into the form
+$("#comment_text_field_<%= @micropost_id %>").val("")
+
 // $().reset
 
 // $('some_element').replaceWith('<%#= j render 'some/element_template' %>');
