@@ -1,0 +1,32 @@
+<% commentable.comments.each do |comment| %>
+  <!-- the following line eliminates the blank comment -->
+  <% next if comment.new_record? %>
+  <p id="comment_reply_<%= commentable.id %>" class="well">
+    <%= comment.body %>
+    <span class="glyphicon glyphicon-comment reply-toggle"
+          id="reply-toggle-<%= comment.id %>" data-toggle="tooltip"
+          data-placement="top" data-animation="fade"
+          title="Reply to this comment">
+    </span>
+    <span class="comment-timestamp timestamp">
+      Posted <%= time_ago_in_words(comment.created_at) %> ago
+    </span>
+  </p>
+  <div class="hidden-reply-to-comment-form"
+       id="hidden-reply-to-comment-form-<%= comment.id %>">
+    <%= render partial: 'comments/reply_form', 
+                 locals: { commentable: comment } %>
+  </div>
+
+  <script>
+    $("#reply-toggle-<%= comment.id %>").click(function(){
+        $("#hidden-reply-to-comment-form-<%= comment.id %>").toggle();
+    });
+  </script>
+<% end %>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    $(document.body).tooltip({ selector: "[title]" });
+  })
+</script>
