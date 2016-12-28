@@ -14,9 +14,12 @@
   </p>
   <div class="hidden-reply-to-comment-form"
        id="hidden-reply-to-comment-form-<%= comment.id %>">
-    <%= render partial: 'comments/reply_form', 
+    <%= render partial: 'shared/comment_form', 
                  locals: { commentable: comment } %>
   </div>
+
+  <%= render partial: "comments/comment",
+                 locals: { commentable: comment } %>
 
   <script>
     $("#reply-toggle-<%= comment.id %>").click(function(){
