@@ -2,7 +2,7 @@
   <aside class="col-xs-12 col-md-4">
     <section class="user_info">
       <div id="gravatar-adjust"><%= gravatar_for @user %></div>
-      <h1 class="primary-font" id="user_info_show_name"><%= @user.name %></h1>
+      <h1 class="primary-font" id="user_info_show_name"><%= @user.username %></h1>
       <span><%= link_to "view my profile", @user %></span>
       <span class="sidebar-post-count">
         <%= pluralize(current_user.microposts.count, "panogram") %>

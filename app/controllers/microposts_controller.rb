@@ -13,7 +13,6 @@ class MicropostsController < ApplicationController
       end
     else
       @feed_items = current_user.feed.paginate(page: params[:page]) #[]
-      #@micropost = user.microposts.build
       @comment = @micropost.comments.build
       render 'welcome/index'
     end
@@ -47,6 +46,7 @@ class MicropostsController < ApplicationController
     @sub_title = "Is liked by..."
     @micropost = Micropost.find(params[:id])
     @user = current_user
+    @comment = @micropost.comments.build
     @users = @micropost.admirers.paginate(page: params[:page])
     render 'show_liked_by'
   end
