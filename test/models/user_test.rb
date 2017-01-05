@@ -6,6 +6,7 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new(name: "Joe Schmoe", email: "joe@schmoe.com",
                      username: "herpaderpa", password: "d0nuts",
                      password_confirmation: "d0nuts")
+    @micropost = microposts(:marmot)
   end
 
   test "should be valid" do
@@ -161,7 +162,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated comments should be destroyed" do
     @user.save
-    @user.comments.create!(body: "Super offensive post")
+    @micropost.comments.create!(body: "Super offensive post", user_id: @user.id)
     assert_difference 'Comment.count', -1 do
       @user.destroy
     end

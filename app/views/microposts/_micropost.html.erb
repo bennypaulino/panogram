@@ -21,7 +21,7 @@
       </span>
     </a>
 
-    <span class="timestamp">
+    <span class="timestamp" data-turbolinks="false">
       Posted <%= time_ago_in_words(micropost.created_at) %> ago
       <%= render 'shared/comment_toggles', micropost: micropost %>
       <% if current_user?(micropost.user) %>
@@ -33,7 +33,7 @@
     <div class="hidden-comment-form"
           id="hidden-comment-form-<%= micropost.id %>">
       <%= render partial: 'shared/comment_form',
-                 locals: { commentable: micropost, micropost: micropost } %>
+                 locals: { micropost: micropost, comment: @comment } %>
     </div>
 
     <div class="hidden-comments" id="hidden-comments-<%= micropost.id %>">
@@ -41,7 +41,7 @@
         Leave a comment...
       <span class="glyphicon glyphicon-comment"></span></span>
        <%= render partial: "comments/comment",
-                 locals: { commentable: micropost } %>
+                 locals: { micropost: micropost } %>
     </div>
   </div>
 </li>

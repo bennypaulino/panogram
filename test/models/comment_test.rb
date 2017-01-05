@@ -4,7 +4,8 @@ class CommentTest < ActiveSupport::TestCase
 
   def setup
     user = users(:krusty)
-    @comment = user.comments.build(body: "Ha, ha!")
+    micropost = microposts(:marmot)
+    @comment = micropost.comments.build(body: "Ha, ha!", user_id: user.id)
   end
 
   test "should be valid" do

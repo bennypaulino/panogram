@@ -2,18 +2,15 @@
 
 question:
   body: "How many programmers does it take to change a light bulb?"
-  commentable_id: 1
-  commentable_type: "Micropost"
+  id: 1
   created_at: <%= 15.minutes.ago %>
 
 answer:
   body: "None, that's a hardware problem"
-  commentable_id: 2
-  commentable_type: "Micropost"
+  id: 2
   created_at: <%= 5.minutes.ago %>
 
 most_recent:
   body: "Real programmers count from 0."
-  commentable_id: 3
-  commentable_type: "Micropost"
+  id: 3
   created_at: <%= Time.zone.now %>

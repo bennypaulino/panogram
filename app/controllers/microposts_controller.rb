@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user #, only: [:create, :destroy, :update]
+  before_action :logged_in_user
   before_action :correct_user, only: [:update, :destroy]
 
   def create
@@ -13,6 +13,8 @@ class MicropostsController < ApplicationController
       end
     else
       @feed_items = current_user.feed.paginate(page: params[:page]) #[]
+      #@micropost = user.microposts.build
+      @comment = @micropost.comments.build
       render 'welcome/index'
     end
   end

@@ -4,6 +4,7 @@ class LikingTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:lebowski)
     @micropost = microposts(:bar)
+    @comment = @micropost.comments.build
     log_in_as(@user)
   end
 

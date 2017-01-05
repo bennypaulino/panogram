@@ -1,14 +1,14 @@
 // Update the comments for a micropost
-$("#hidden-comments-<%= @micropost_id %>").html("<%= j render(:partial => 'comments/comment', locals: {commentable: Micropost.find_by_id(@micropost_id)} ) %>");
+$("#hidden-comments-<%= @micropost.id %>").html("<%= j render(:partial => 'comments/comment', locals: {micropost: @micropost } ) %>");
 
 // reveal the hidden-comments
-$("#hidden-comments-<%= @micropost_id %>").css("display", "block");
+$("#hidden-comments-<%= @micropost.id %>").css("display", "block");
 
 // clear the text that was entered into the form
-$("#comment_text_field_<%= @micropost_id %>").val("")
+$("#comment_text_field_<%= @micropost.id %>").val("")
 
 //Replace the comments counter
-$("#comments_<%= @micropost_id %>").html("- <%= pluralize(@micropost.comments.count, 'comment') %> -");
+$("#comments_<%= @micropost.id %>").html("- <%= pluralize(@micropost.comments.count, 'comment') %> -");
 
 
 

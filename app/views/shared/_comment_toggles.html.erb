@@ -11,7 +11,7 @@
   </script>
 
 <% else %>
-  <span id="comments_<%= micropost.id %>" class="comments-toggle">
+  <span id="comments_<%= micropost.id %>" class="comments-toggle" data-turbolinks="false">
     - <%= pluralize(micropost.comments.count, "comment") %> -
   </span>
 

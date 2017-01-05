@@ -1132,7 +1132,11 @@ span.picture {
 }
 
 .comment-timestamp {
-  display: block;
+  /*display: block;*/
+}
+
+.comment-user {
+  margin-left: 1em;
 }
 
 /*  --------------------  follow / followers ---------------------- */
