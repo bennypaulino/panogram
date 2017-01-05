@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+question:
+  body: "How many programmers does it take to change a light bulb?"
+  id: 1
+  created_at: <%= 15.minutes.ago %>
+
+answer:
+  body: "None, that's a hardware problem"
+  id: 2
+  created_at: <%= 5.minutes.ago %>
+
+most_recent:
+  body: "Real programmers count from 0."
+  id: 3
+  created_at: <%= Time.zone.now %>

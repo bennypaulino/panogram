@@ -2,6 +2,7 @@ class Micropost < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :admirers, through: :likes, source: :user, dependent: :destroy
+  has_many :comments
 
   default_scope -> { order(created_at: :desc) }
 

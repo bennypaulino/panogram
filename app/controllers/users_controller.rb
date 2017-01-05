@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
+    @micropost = current_user.microposts.build
+    @comment = @micropost.comments.build
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
@@ -63,6 +65,8 @@ class UsersController < ApplicationController
   def liked_posts
     @title = "Liked Panograms"
     @user = User.find(params[:id])
+    @micropost = current_user.microposts.build
+    @comment = @micropost.comments.build
     @panoposts = @user.liked_posts.paginate(page: params[:page])
     render 'show_liked_posts'
   end

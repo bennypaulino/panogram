@@ -1,0 +1,23 @@
+// Update the comments for a micropost
+$("#hidden-comments-<%= @micropost.id %>").html("<%= j render(:partial => 'comments/comment', locals: {micropost: @micropost } ) %>");
+
+// reveal the hidden-comments
+$("#hidden-comments-<%= @micropost.id %>").css("display", "block");
+
+// clear the text that was entered into the form
+$("#comment_text_field_<%= @micropost.id %>").val("")
+
+//Replace the comments counter
+$("#comments_<%= @micropost.id %>").html("- <%= pluralize(@micropost.comments.count, 'comment') %> -");
+
+
+
+// $().reset
+
+// $('some_element').replaceWith('<%#= j render 'some/element_template' %>');
+
+
+// Re: pagination
+// append to the end of the list
+// IF PAGINATING...........
+// re-render the entire comments list for that particular micropost

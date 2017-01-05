@@ -19,8 +19,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks
+gem 'jquery-turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
+# Extends ActiveRecord w/ support for organizing parent–children relationships
+gem 'acts_as_tree'
 
 # Converts Less to Sass and make Bootstrap available
 gem 'bootstrap-sass', '3.3.6'

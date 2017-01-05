@@ -1,0 +1,56 @@
+<% if micropost.comments.any? %>
+  <% micropost.comments.each do |comment| %>
+    <!-- the following line eliminates the blank comment -->
+    <% next if comment.new_record? %>
+    <p id="comment_<%= comment.id %>" class="well">
+      <%= comment.body %>
+      <!-- <span class="glyphicon glyphicon-comment reply-toggle"
+            id="reply-toggle-<%= comment.id %>" data-toggle="tooltip"
+            data-placement="top" data-animation="fade"
+            title="Reply to this comment">
+      </span> -->
+      <br>
+      <span class="user comment-user">
+        - <%= link_to comment.user.username, comment.user %>
+      </span>
+      <span class="comment-timestamp timestamp">
+        Posted <%= time_ago_in_words(comment.created_at) %> ago
+      </span>
+    </p>
+    <div class="hidden-reply-to-comment-form"
+         id="hidden-reply-to-comment-form-<%= comment.id %>">
+      <!-- rendering the partial: 'comments/reply_form' will produce triple replies! -->
+      <%#= render partial: 'comments/reply_form', 
+                   locals: { comment: comment,
+                             micropost_id: micropost.id, 
+                             parent_id: comment.id } %>
+
+      <%#= render partial: 'shared/comment_form', 
+                   locals: { comment: comment } %>
+      <%#= render partial: 'shared/comment_form', 
+                   locals: { micropost: micropost } %>
+      <!-- <ul class="actions">
+        <li><%#= link_to 'reply', new_comment_path(parent_id: comment.id, format: 'js'), remote: true %></li>
+      </ul>
+      <div id="reply-form-<%= comment.id %>"></div> -->
+    </div>
+
+<!--     <ul>
+      <%#= render comment.children if comment.children.any? %>
+      <%#= render partial: 'comments/reply',
+                 locals: { commentable: comment } %>
+    </ul> -->
+
+    <script>
+      $("#reply-toggle-<%= comment.id %>").click(function(){
+          $("#hidden-reply-to-comment-form-<%= comment.id %>").toggle();
+      });
+    </script>
+  <% end %>
+<% end %>
+<!--
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    $(document.body).tooltip({ selector: "[title]" });
+  })
+</script>-->

@@ -15,15 +15,23 @@ $link-color-hover: #50015B;
 
 /* --------------------------- UNIVERSAL ----------------------------- */
 
+html {
+  height: 100%;
+}
+
 body {
   padding-top: 4em;
   width: 100%;
   max-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #outer-wrapper {
   padding-left: 4px;
   padding-right: 4px;
+  flex: 1;
 }
 
 #inner-wrapper {
@@ -64,6 +72,16 @@ textarea {
     text-decoration: none;
   }
 }
+
+.tooltip.fade{
+  /* Fade in tooltip - takes 2 seconds to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 2s;
+  &:hover {
+    opacity: 1
+  }
+}
+
 
 /* --------------------------- typography --------------------------- */
 
@@ -242,11 +260,17 @@ p {
 
 /* --------------------------- FOOTER ------------------------------ */
 footer {
-  margin-top: 3.5em;
-  padding-top: .2em;
-  /*border-top: 1px solid $gray-medium-light;*/
+  background-color: $gray-lighter;
+  padding-top: 0.6em;
   color: #777;
   font-family: 'Gruppo', cursive;
+  /*use transition & transform for smooth mouse-over during/after*/
+  transition: background-color 2s, transform 2s;
+  -webkit-transition: background-color 2s, -webkit-transform 2s;
+  &:hover {
+    background-color: #d8d8d8;
+  }
+  /* end background-color hover effect for the footer */
   a {
     color: #555;
     &:hover {
@@ -494,6 +518,29 @@ label.control-label {
   }
 }
 
+/* ~~~~~~~~~~~~~~~~~ Comment Form ~~~~~~~~~~~~~~~~~ */
+.comment-form-toggle:hover {
+  transition: 2s;
+  color: rgba(110, 201, 13, 0.65);
+  cursor: pointer;
+}
+
+.hidden-comment-form {
+  display: none;
+  margin-top: 0.7em;
+}
+
+.hidden-reply-to-comment-form {
+  display: none;
+}
+
+.leave-comment {
+  color: #bfbfbf;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 /* ~~~~~~~~~~~~~~~~~ Log In Form ~~~~~~~~~~~~~~~~~ */
 .checkbox {
   margin-top: -0.8em;
@@ -600,9 +647,9 @@ aside {
 }
 
 .countdown {
-  display: inline;
+  display: block;
   margin: 0 auto 0.8em;
-  float: right;
+  color: grey;
 }
 
 .btn-choose {
@@ -732,7 +779,6 @@ aside {
     to {opacity: 1;}
   }
 }
-
 
 #hidden-ampersand {
   display: none;
@@ -1051,13 +1097,46 @@ span.picture {
 }
 
 .microposts .micropost-info {
-  margin-left: 33%;
+  /*margin-left: 33%;*/
   a {
     text-decoration: none;
   }
   @media (min-width: 500px) and (max-width: 643px) {
   margin-left: 0;
   }
+}
+
+/*  --------------------  comments ---------------------- */
+.hidden-comments {
+  display: none;
+  margin-top: 0.7em;
+  .well {
+    margin-top: 0.8em;
+    margin-bottom: 0.7em;
+  }
+}
+
+.comments-toggle:hover {
+  cursor: pointer;
+  color: $link-color-hover;
+  transition: 2s;
+}
+
+.reply-toggle {
+  float: right;
+  color: rgb(212, 249, 173);
+  &:hover {
+    transition: 2s;
+    color: rgba(110, 201, 13, 0.65);
+  }
+}
+
+.comment-timestamp {
+  /*display: block;*/
+}
+
+.comment-user {
+  margin-left: 1em;
 }
 
 /*  --------------------  follow / followers ---------------------- */
@@ -1230,7 +1309,7 @@ span.picture {
 }
 
 /* -------------------------- Static Pages ----------------------------- */
-#about-panogram {
+#panogram-subtitle {
   @media (max-width: 830px) {
     display: block;
   }

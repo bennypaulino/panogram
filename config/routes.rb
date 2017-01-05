@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     member do
       get :admirers
     end
+    resources :comments, only: [:create, :new]
   end
 
   resources :account_activations, only: [:edit]
@@ -33,8 +34,5 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :update, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
-
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :comments, only: [:create, :new]
 end

@@ -1,0 +1,15 @@
+<%= form_for([micropost, @comment], remote: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="character-counter">
+    <div class="field" id="field_#{micropost.id}">
+      <%= f.text_area :body,
+                       maxlength: 140,
+                       id: "comment_text_field_#{micropost.id}",
+                       placeholder: "Create a message..." %>
+      <%= f.hidden_field :micropost_id %>
+    </div>
+    <span class="countdown text-right">140 characters remaining</span>
+  </div>
+  <br>
+  <%= f.submit "post comment", class: "btn btn-submit" %>
+<% end %>

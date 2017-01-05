@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require jquery.Jcrop
 //= require bootstrap
 //= require bootstrap-filestyle
 //= require turbolinks
+//= require turbolinks-compatibility
 //= require_tree .

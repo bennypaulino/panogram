@@ -1,0 +1,15 @@
+<%= form_for(@comment, remote: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="character-counter">
+    <div class="reply-field" id="reply-field_#{comment.id}">
+      <%= f.text_area :body,
+                       maxlength: 140,
+                       id: "reply_text_field_#{comment.id}",
+                       placeholder: "Create a reply..." %>
+      <%= f.hidden_field :parent_id %>
+    </div>
+    <span class="countdown text-right">140 characters remaining</span>
+  </div>
+  <br>
+  <%= f.submit "post a reply", class: "btn btn-submit" %>
+<% end %>
