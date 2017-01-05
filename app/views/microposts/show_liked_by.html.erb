@@ -1,5 +1,5 @@
-  <div class="row show-follow-followers">
-  <aside class="col-xs-12 col-md-4">
+<div class="show-follow-followers" id="layout-base">
+  <aside class="col-md-4">
     <section class="user_info">
       <div id="gravatar-adjust"><%= gravatar_for @user %></div>
       <h1 class="primary-font" id="user_info_show_name"><%= @user.username %></h1>
@@ -12,7 +12,7 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
-  <div class="col-md-8 micropost-admirers microposts">
+  <div class="col-md-8 col-xs-12 micropost-admirers microposts">
     <h3 class="page-title"><%= @title %></h3>
 
     <%= render 'microposts/micropost', micropost: @micropost %>
