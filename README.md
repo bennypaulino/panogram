@@ -12,29 +12,22 @@ jQuery
 AWS 
 
 ## Features
-Image cropping
-Post an image
-Favorite an image
-Follow / Unfollow users
+* Image cropping
+* Post an image
+* Favorite an image
+* Follow / Unfollow users
 
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
 
 ### Installing
 
-Clone the repo git clone git@github.com:bennypaulino/panogram.git
-Go to the folder cd panogram and run gem install bundle && bundle install
-Run rails db:setup && rails db:migrate to create db and included Users table
+* Clone the repo git clone git@github.com:bennypaulino/panogram.git
+* Go to the folder cd panogram and run gem install bundle && bundle install
+* Run rails db:setup && rails db:migrate to create db and included Users table
 
 
 ## Running the tests
