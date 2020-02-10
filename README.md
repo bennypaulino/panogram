@@ -1,8 +1,8 @@
-== README
+# P A N O G R A M
 
 Sometimes the world just isn't square. Panogram is a panoramic-image sharing website, conceived before Instagram loosened their restrictions on only allowing square images.Built from the ground up using TDD with the help of mini-test.
 
-# Technologies Used
+## Technologies Used
 Ruby on Rails 5
 PostgreSQL
 SASS
@@ -46,6 +46,7 @@ Run rails test
 End to end testing from invalid submission to a valid submission for a post, including cropping an image, deleting a post, visiting a different user, testing the number of posts a user has, and more.
 
 
+```ruby
 require 'test_helper'
 
 class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
@@ -124,6 +125,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_match "1 panogram", response.body
   end
 end
+```
 
 
 
