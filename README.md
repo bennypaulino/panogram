@@ -3,13 +3,13 @@
 Sometimes the world just isn't square. Panogram is a panoramic-image sharing website, conceived before Instagram loosened their restrictions on only allowing square images.Built from the ground up using TDD with the help of mini-test.
 
 ## Technologies Used
-Ruby on Rails 5
-PostgreSQL
-SASS
-Bootstrap 3
-Javascript
-jQuery
-AWS 
+* Ruby on Rails 5
+* PostgreSQL
+* SASS
+* Bootstrap 3
+* Javascript
+* jQuery
+* AWS 
 
 ## Features
 * Image cropping
