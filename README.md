@@ -125,8 +125,8 @@ end
 ## Built With
 
 * [Ruby on Rails 5.0](https://guides.rubyonrails.org/v5.0/) - The web framework used
-* [Bootstrap](https://getbootstrap.com/docs/3.3/) - Dependency Management
-* [Jcrop](https://github.com/tapmodo/Jcrop) - Used to generate RSS Feeds
+* [Bootstrap](https://getbootstrap.com/docs/3.3/) - CSS framework
+* [Jcrop](https://github.com/tapmodo/Jcrop) - Used to accommodate image cropping
 
 
 
