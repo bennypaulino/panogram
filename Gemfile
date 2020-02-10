@@ -48,7 +48,7 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'carrierwave', '~> 0.11.2'
 
 # Minimagick helps to manipulate images with minimal use of memory via ImageMagick
-gem 'mini_magick', '~> 4.5.1'
+gem 'mini_magick', '~> 4.9.4'
 
 # Handles both server cloud & storage based services. Supports Amazon S3 & more.
 gem 'fog', '~> 1.38.0'
