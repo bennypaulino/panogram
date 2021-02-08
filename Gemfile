@@ -45,7 +45,7 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'bcrypt', '~> 3.1.11'
 
 # Provides a simple & flexible way to upload files from Ruby applications.
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', '~> 1.3.2'
 
 # Minimagick helps to manipulate images with minimal use of memory via ImageMagick
 gem 'mini_magick', '~> 4.5.1'
